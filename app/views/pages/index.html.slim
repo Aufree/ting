@@ -1,0 +1,41 @@
+.ui.grid
+  .two.wide.column
+  .nine.wide.column
+    h1 
+      i.coffee.icon Ting
+    .ui.form
+      .inline.field
+        .ui.pointing.right.label http://www.xiami.com/song/
+        = text_field_tag :xiamiid
+      .field
+        = text_area_tag :content
+      .ui.submit.button.orange.right.floated Post
+    .ui.card.music style="width: 100%;"
+      .content
+        .header
+          i.music.icon
+          a 一个像夏天一个像秋天
+        .meta
+          .right.floated.time 2014-11-30 22:39
+          .category
+            | 演唱
+            a 范玮琪
+          .description lalala
+      .xtra.content
+        .right.floated.author
+          img src="http://cdn.v2ex.com/gravatar/f8b05743a491fef3a9a2293451ddcca9?s=48&amp;d=retro" class="ui avatar image"
+          a lala
+        i.comment.icon style="width: 100%; display: inline"
+          a 评论(3)
+    iframe src="http://miantiao.jd-app.com/xiamiplayer/1769070538" frameborder="0" scrolling="0" width="430" height="200" allowtransparency=""
+  .five.wide.column
+    - if logged_in?
+      .ui.card
+        .content.center
+          .h4 = current_user.name
+        .extra.content
+          .ui.vertical.labeld.menu
+            a.item Hello
+    - else
+      .ui.card
+        = render 'sessions/form'

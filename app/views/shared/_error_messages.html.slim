@@ -1,0 +1,11 @@
+- if object.errors.any?
+  #error_explanation
+    .ui.error.message
+      i.close.icon
+      h3
+        | 表单包含 
+        = object.errors.count
+        |  个错误
+      ul.list
+        - object.errors.full_messages.each do |msg|
+          li = msg

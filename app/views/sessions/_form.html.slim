@@ -1,0 +1,9 @@
+.login-form
+  h2.header.center 登录
+  = form_for :session, url: sessions_path do |f|
+    .ui.form.basic.segment
+      .field
+        = f.text_field :email, placeholder: "邮箱"
+      .field
+        = f.password_field :password, placeholder: "密码"
+      = f.submit "登录", class: "ui blue fluid button"

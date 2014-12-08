@@ -30,3 +30,9 @@ config/secrets.yml
 /vendor/assets/bower_components
 *.bowerrc
 bower.json
+
+# Ignore upload images
+/public/uploads/
+
+# Ignore Spring files.
+/spring/*.pid
