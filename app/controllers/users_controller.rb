@@ -2,7 +2,9 @@ class UsersController < ApplicationController
 before_action :require_login, only: [ :edit, :update, :destroy ]
 before_action :find_correct_user, only: [ :edit, :update ]
 before_action :not_login_user, only: [ :new, :create ]
+
   def show
+    @user = User.find_by_name(params[:id])
   end
 
   def new

@@ -1,0 +1,9 @@
+zh-CN:
+  activerecord:
+    attributes:
+      song:
+        s_id: "虾米 ID "
+        title: "歌曲名称"
+        artist: "歌手信息"
+        content: "分享内容"
+        pic: "图片链接"

@@ -1,0 +1,43 @@
+.songs-list {
+    width: 100%;
+}
+.songs {
+    margin-top: 80px;
+}
+.song-info {
+    height: 100%;
+    min-height: 200px;
+}
+.song-content {
+    margin-top: 15px;
+}
+.song-footer {
+    width: 100%;
+    padding-right: 30px;
+    margin-top: 30px;
+}
+.author {
+    float: right;
+}
+.com-count {
+    margin-top: 10px;
+    line-height: 36px;
+}
+.album-pic {
+    width: 180px;
+    position: relative;
+    .outer-pic.ui.image {
+        width: 180px;
+        height: 180px;
+        img {
+            min-width: 180px;
+            min-height: 180px;
+        }
+    }
+    img {
+        border: 1px solid #A0FF99;
+    }
+}
+.operate {
+    float: right;
+}

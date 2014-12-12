@@ -1,10 +1,11 @@
 .ui.grid
   .six.wide.column
   .four.wide.column
+    .center
+      h2.header 注册
+    = render 'shared/error_messages', object: @user
     = form_for @user do |f|
       .ui.form
-        .center
-          h2.header 注册
         .field
           .ui.icon.input
              = f.text_field :name, placeholder: "用户名"
@@ -21,4 +22,4 @@
           .ui.icon.input
              = f.password_field :password_confirmation, placeholder: "确认密码"
              i.lock.icon
-        = f.submit "注册", class: "ui fluid green button", data: { disable_with: "提交中。。。" }
+        = f.submit "注册", class: "ui fluid green button", data: { disable_with: "提交中" }

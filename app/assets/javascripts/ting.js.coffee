@@ -19,6 +19,7 @@
       self.initSemanticUiTools()
       self.initAvatarPreview()
       self.initUploadAvatar()
+      self.initGetXiamiInfo()
       return
 
     sitePageUpdate: ->
@@ -58,6 +59,45 @@
     initCloseMessage: ->
       $(".message .close").on "click", ->
         $(this).closest(".message").fadeOut()
+        return
+      return
+
+    initGetXiamiInfo: ->
+      $('.album-pic').on "click", '.playBtn', ->
+        self = $(this)
+        play_icon = self.find('i.play')
+        pause_icon = self.find('i.pause')
+        $player = $('#player').get(0)
+        $audio = $('audio')
+
+        if $audio.attr('data-xiami_id') is $(this).attr 'data-xiami_id'
+          if $player.paused
+            $player.play()
+            $('.rotating').removeClass 'stop-rotate'
+            play_icon.removeClass('play').addClass 'pause'
+          else
+            $player.pause()
+            $('.rotating').addClass 'stop-rotate'
+            $('.pause').removeClass('pause').addClass 'play'
+        else
+          play_icon.addClass('spinner rotating')
+          $.get 'http://inmusic.sinaapp.com/xiami_api/' + $(this).data('xiami_id'), (data) ->
+            if data
+              $('.stop-rotate').removeClass 'stop-rotate'
+              play_icon.removeClass('spinner rotating')
+              $('.rotating').removeClass 'rotating'
+              self.siblings('.image').addClass 'rotating'
+              $audio.attr 'src', data.songurl
+              $audio.attr 'data-xiami_id', data.id
+              $('.pause').removeClass('pause').addClass 'play'
+              play_icon.removeClass('play').addClass 'pause'
+              $('#player').trigger "play"
+            return
+
+        $audio.on 'ended', ->
+          $('.rotating').removeClass 'rotating'
+          $('.pause').removeClass('pause').addClass 'play'
+          return
         return
       return
 

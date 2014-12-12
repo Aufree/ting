@@ -1,0 +1,16 @@
+= form_for song, method: :post do |f|
+  #songs-errors
+    - if song.errors.any?
+      = render 'shared/error_messages', object: song
+  .ui.form
+    .inline.field
+      .ui.pointing.right.label http://www.xiami.com/song/
+      = f.text_field :s_id, placeholder: "虾米 ID"
+    .field
+      = f.text_field :title, placeholder: "歌曲名称(自动抓取)", disabled: "disabled"
+    .field
+      = f.text_field :artist, placeholder: "歌手(自动抓取)", disabled: "disabled"
+    .field
+      = f.text_area :content, placeholder: "评价"
+      = f.hidden_field :pic
+    = f.submit "发布", class: "ui submit button orange right floated", data: { disable_with: "提交中" }

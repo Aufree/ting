@@ -1,0 +1,15 @@
+one:
+  s_id: 1
+  title: "Hello World"
+  artist: "paul"
+  pic: "http://example.com/dog.png"
+  content: "Good music"
+  user: paul
+
+two:
+  s_id: 2
+  title: "Cool"
+  artist: "foo"
+  pic: "http://example.com/dog.png"
+  content: "I love this music"
+  user: foo

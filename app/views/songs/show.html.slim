@@ -1,0 +1,6 @@
+- id = @song.s_id
+.ui.grid
+  .five.wide.column
+  .five.wide.column
+    iframe src="http://miantiao.jd-app.com/xiamiplayer/#{id}" frameborder="0" scrolling="0" width="430" height="200" allowtransparency=""
+    .ui.segment = parse_text(@song.content)

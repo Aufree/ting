@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-root 'pages#index'
+root 'songs#index'
 
 resources :sessions, only: [ :new, :create, :destroy ]
 resources :users, only: [ :new, :create, :update, :edit, :show ]
+resources :songs
+resources :pages
 
 get 'login' => 'sessions#new', :as => :login
 delete 'logout' => 'sessions#destroy', :as => :logout

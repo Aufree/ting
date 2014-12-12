@@ -1,0 +1,6 @@
+.ui.grid
+  .six.wide.column
+  .four.wide.column
+    .ui.center.aligned.field.basic.segment
+      = image_tag(@user.avatar_url(:thumb), class: "ui image circular thumb user-avatar")
+      .user-name = @user.name
