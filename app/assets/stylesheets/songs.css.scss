@@ -1,7 +1,7 @@
 .songs-list {
     width: 100%;
 }
-.songs {
+#songs {
     margin-top: 80px;
 }
 .song-info {
@@ -13,14 +13,14 @@
 }
 .song-footer {
     width: 100%;
-    padding-right: 30px;
+    padding-right: 5px;
     margin-top: 30px;
 }
 .author {
     float: right;
 }
 .com-count {
-    margin-top: 10px;
+    float: left;
     line-height: 36px;
 }
 .album-pic {

@@ -30,6 +30,8 @@
     initSemanticUiTools: ->
       $(".user-avatar-upload").popup()
       $(".ui.selection.dropdown").dropdown()
+      $('.ui.sticky').sticky('refresh')
+      $('.ui.sticky').sticky({offset: 100, bottomOffset: 50, context: '#main'})
       return
 
     initAvatarPreview: ->

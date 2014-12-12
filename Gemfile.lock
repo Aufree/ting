@@ -127,7 +127,6 @@ GEM
     multipart-post (2.0.0)
     nokogiri (1.6.5)
       mini_portile (~> 0.6.0)
-    nprogress-rails (0.1.6.3)
     oauth (0.4.7)
     oauth2 (0.9.4)
       faraday (>= 0.8, < 0.10)
@@ -239,7 +238,6 @@ DEPENDENCIES
   mini_magick
   minitest-reporters (= 1.0.5)
   nokogiri
-  nprogress-rails
   rails (= 4.1.7)
   remotipart
   sass-rails (~> 4.0.5)

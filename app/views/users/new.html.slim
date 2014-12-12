@@ -3,8 +3,9 @@
   .four.wide.column
     .center
       h2.header 注册
-    = render 'shared/error_messages', object: @user
-    = form_for @user do |f|
+    #signup-errors
+      = render 'shared/error_messages', object: @user
+    = form_for @user, remote: true do |f|
       .ui.form
         .field
           .ui.icon.input

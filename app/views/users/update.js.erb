@@ -1,0 +1,6 @@
+<% if @user.errors.empty? %>
+  Turbolinks.visit('<%= user_path(@user) %>');
+<% else %>
+  $('#user-edit-errors').html("<%= j render 'shared/error_messages', object: @user %>")
+  $('#error_explanation').transition('tada');
+<% end %>

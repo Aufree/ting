@@ -1,7 +1,6 @@
-= form_for song, method: :post do |f|
-  #songs-errors
-    - if song.errors.any?
-      = render 'shared/error_messages', object: song
+= form_for song, remote: true do |f|
+  #song-errors
+    = render 'shared/error_messages', object: song
   .ui.form
     .inline.field
       .ui.pointing.right.label http://www.xiami.com/song/

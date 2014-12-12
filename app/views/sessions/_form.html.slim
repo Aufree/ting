@@ -1,7 +1,8 @@
 .login-form
   h2.header.center 登录
-  = form_for :session, url: sessions_path do |f|
+  = form_for :session, url: sessions_path, remote: true do |f|
     .ui.form.basic.segment
+      #login-errors
       .field
         = f.text_field :email, placeholder: "邮箱"
       .field

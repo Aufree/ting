@@ -4,3 +4,4 @@
     .ui.center.aligned.field.basic.segment
       = image_tag(@user.avatar_url(:thumb), class: "ui image circular thumb user-avatar")
       .user-name = @user.name
+      .user-bio = @user.bio

@@ -18,10 +18,16 @@
    @song = current_user.songs.build(song_params)
     if @song.save
       flash[:success] = "发布成功"
-      redirect_to root_path
+      respond_to do |format|
+        format.html { redirect_to root_path }
+        format.js
+      end
     else
       flash.now[:error] = "发布失败"
-      render 'new'
+      respond_to do |format|
+        format.html { render 'new' }
+        format.js
+      end
     end
   end
 
@@ -44,9 +50,14 @@
   end
 
   def destroy
-    current_user.songs.find(params[:id]).destroy
-    flash[:success] = "删除成功"
-    redirect_to root_path
+    @song = current_user.songs.find(params[:id])
+    if @song.destroy
+      flash[:success] = "删除成功"
+      respond_to do |format|
+        format.html { redirect_to root_path }
+        format.js
+      end
+    end
   end
 
   private

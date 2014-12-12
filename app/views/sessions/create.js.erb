@@ -1,0 +1,7 @@
+<% if logged_in? %>
+  Turbolinks.visit('<%= root_path %>');
+<% else %>
+  $('#login-errors').addClass('ui error message')
+            .html("邮箱或密码输入不正确");
+  $('#login-errors').transition('tada');
+<% end %>

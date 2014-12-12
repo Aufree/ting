@@ -1,0 +1,30 @@
+  .ui.two.column.grid.segment.stacked.songs-list id="song-#{song.id}"
+    .five.wide.column
+      .album-pic
+        .outer-pic class="ui circular image"
+          img src="#{song.pic}"
+        a data-xiami_id="#{song.s_id}" class="ui corner label playBtn"
+          i.play.icon
+    .eleven.wide.column.song-info
+      - if current_user == song.user
+        .operate
+          = link_to edit_song_path(song) do 
+            i.green.pencil.icon
+          = link_to song_path(song), data: { method: "delete", confirm: "确认删除？", remote: true } do 
+            i.red.trash.icon
+      .ui.right
+        h3.header
+          i.orange.sound.icon
+          = link_to song.title, song
+        .singer
+          | 演唱 
+          a = song.artist
+        .song-content 
+          = parse_text(song.content)
+      .song-footer
+        .com-count
+          i.green.comment.icon
+          a 评论(3)
+        .author
+          = image_tag(song.user.avatar_url(:thumb), class: "ui avatar image")
+          = link_to song.user.name, song.user

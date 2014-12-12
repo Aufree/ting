@@ -1,0 +1,14 @@
+<% if @song.errors.empty? %>
+    new_song = "<%= j render 'song', song: @song %>";
+    $('#songs').prepend(new_song);
+    animated();
+<% else %>
+  $('#song-errors').html("<%= j render 'shared/error_messages', object: @song %>");
+  $('#error_explanation').transition('tada');
+<% end %>
+
+function animated() {
+  $('#error_explanation').html("");
+  $('#song-<%= @song.id %>').addClass('animated bounceInLeft');
+  $('#new_song').trigger('reset')
+}

@@ -15,9 +15,15 @@ before_action :not_login_user, only: [ :new, :create ]
   	@user = User.new(user_params)
   	if @user.save
   	  flash[:success] = "Successfully create account!"
-  	  redirect_to root_path
+        respond_to do |format|
+          format.html { redirect_to root_path }
+          format.js
+        end
   	else
-  	  render 'new'
+        respond_to do |format|
+          format.html { render 'new' }
+          format.js
+        end
   	end
   end
 

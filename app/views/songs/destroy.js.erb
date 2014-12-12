@@ -1,0 +1,8 @@
+$(function(){
+    $('#song-<%= @song.id %>').addClass('animated bounceOutRight')
+                                                  .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', 
+        function(){
+            $('#song-<%= @song.id %>').remove();
+        }
+    );
+});
