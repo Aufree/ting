@@ -1,3 +1,7 @@
+html.turbolinks-progress-bar::before {
+    background-color: #FFB8B8 !important;
+    height: 3px !important;
+}
 .container {
     padding-top: 35px;
     padding-right: 14px;
@@ -23,22 +27,34 @@
     margin-top: 10px;
 }
 .rotating {
-  animation: rotating 8s linear infinite;
-  -webkit-animation: rotating 8s linear infinite;
+    animation: rotating 8s linear infinite;
+    -webkit-animation: rotating 8s linear infinite;
 }
 @keyframes rotating {
-  from {transform:rotate(0deg);}
-  to {transform:rotate(360deg);}
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 @-webkit-keyframes rotating {
-  from {-webkit-transform:rotate(0deg);}
-  to {-webkit-transform:rotate(360deg);}
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+    }
 }
 @-moz-keyframes rotating {
-  from {-moz-transform:rotate(0deg);}
-  to {-moz-transform:rotate(360deg);}
+    from {
+        -moz-transform: rotate(0deg);
+    }
+    to {
+        -moz-transform: rotate(360deg);
+    }
 }
 .stop-rotate {
-  animation-play-state:paused;
-  -webkit-animation-play-state:paused;
+    animation-play-state: paused;
+    -webkit-animation-play-state: paused;
 }
