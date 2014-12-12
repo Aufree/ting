@@ -10,3 +10,5 @@ html
     .container
       = render 'shared/flash'
       = yield
+    javascript:
+      $('.ui.sticky').sticky('refresh')

@@ -41,3 +41,8 @@
 .operate {
     float: right;
 }
+#song-edit {
+    textarea#song_content {
+        min-height: 300px;
+    }
+}
