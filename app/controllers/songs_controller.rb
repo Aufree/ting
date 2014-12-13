@@ -39,7 +39,7 @@
     if @song.update_attributes params.require(:song).permit(:content)
       flash[:success] = "更新成功"
       respond_to do |format|
-        format.html { redirect_to root_path }
+        format.html { redirect_to @song }
         format.js
       end
     else

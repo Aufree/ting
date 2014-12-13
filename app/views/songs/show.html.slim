@@ -5,6 +5,13 @@
     .ui.piled.segment 
       iframe src="http://miantiao.jd-app.com/xiamiplayer/#{id}" frameborder="0" scrolling="0" width="430" height="200" allowtransparency=""
       .song-content = parse_text(@song.content)
+      .toolbar
+        - if current_user == @song.user
+          = link_to edit_song_path(@song) do
+            i.green.icon.pencil
+          = link_to song_path(@song), method: :delete, data: { confirm: "确认删除" }
+            i.red.icon.trash
+        = image_tag(@song.user.avatar_url(:small), class: "ui avatar image floated right")
 
     .ui.horizontal.icon.divider
       i.circular.green.chat.icon
