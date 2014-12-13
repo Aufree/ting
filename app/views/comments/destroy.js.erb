@@ -1,0 +1,11 @@
+$(function(){
+    $('#comment-<%= @comment.id %>').addClass('animated bounceOutRight')
+                                                                .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', 
+        function(){
+            $('#comment-<%= @comment.id %>').remove();
+            if(!$('.comments .comment').length>0){
+                $('.comments').html('暂无评论')
+            }
+        }
+    );
+});

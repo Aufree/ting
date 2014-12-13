@@ -1,6 +1,23 @@
 - id = @song.s_id
 .ui.grid
-  .five.wide.column
-  .five.wide.column
-    iframe src="http://miantiao.jd-app.com/xiamiplayer/#{id}" frameborder="0" scrolling="0" width="430" height="200" allowtransparency=""
-    .ui.segment = parse_text(@song.content)
+  .three.wide.column
+  .six.wide.column
+    .ui.piled.segment 
+      iframe src="http://miantiao.jd-app.com/xiamiplayer/#{id}" frameborder="0" scrolling="0" width="430" height="200" allowtransparency=""
+      .song-content = parse_text(@song.content)
+
+    .ui.horizontal.icon.divider
+      i.circular.green.chat.icon
+
+    #comments
+      .column
+        .ui.comments
+          - if @comments.any?
+            - @comments.each do |comment|
+              = render 'comments/comment', comment: comment
+          - else
+            .center
+              p 暂无评论
+        .ui.horizontal.icon.divider
+          i.circular.green.pencil.icon
+        = render 'comments/form'

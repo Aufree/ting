@@ -33,4 +33,11 @@ class SongTest < ActiveSupport::TestCase
     @song.content = "a" * 10001
     assert_not @song.valid?
   end
+  
+  test "associated comments should be destroyed" do 
+    comment = comments(:one)
+    assert_difference 'Comment.count', -1 do
+      comment.song.destroy
+    end
+  end
 end

@@ -24,7 +24,7 @@
       .song-footer
         .com-count
           i.green.comment.icon
-          a 评论(3)
-        .author
+          a = song.comments.size
+        .musicer
           = image_tag(song.user.avatar_url(:thumb), class: "ui avatar image")
           = link_to song.user.name, song.user

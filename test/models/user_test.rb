@@ -86,4 +86,19 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
   
+  test "associated songs should be destroyed" do 
+    @user.save
+    @user.songs.create!(s_id: 100, title: "lorem ipsum", artist: "k", content: "cool")
+    assert_difference 'Song.count', -1 do
+      @user.destroy
+    end
+  end
+  
+  test "associated comments should be destroyed" do 
+    comment = comments(:one)
+    assert_difference 'Comment.count', -1 do
+      comment.user.destroy
+    end
+  end
+  
 end

@@ -7,3 +7,5 @@ zh-CN:
         artist: "歌手信息"
         content: "分享内容"
         pic: "图片链接"
+      comment:
+       content: "评论内容"

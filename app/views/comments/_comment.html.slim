@@ -1,0 +1,16 @@
+- user= comment.user
+.comment id="comment-#{comment.id}"
+  = link_to user,class: "avatar commenter" do 
+    = image_tag(user.avatar_url(:small))
+  .content
+    a.author = user.name
+    .text.comment-content = parse_text(comment.content)
+    .actions
+      a.like
+        i.heart.icon
+        | Like
+      - if current_user == user
+        = link_to [@song, comment], method: :delete, remote: true, data: { confirm: "确认删除" } do
+          i.red.trash.icon
+      - else
+        a.reply reply

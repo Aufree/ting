@@ -3,7 +3,9 @@ root 'songs#index'
 
 resources :sessions, only: [ :new, :create, :destroy ]
 resources :users, only: [ :new, :create, :update, :edit, :show ]
-resources :songs
+resources :songs do
+  resources :comments
+end
 resources :pages
 
 get 'login' => 'sessions#new', :as => :login

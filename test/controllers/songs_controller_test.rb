@@ -38,12 +38,9 @@ class SongsControllerTest < ActionController::TestCase
   test "should destroy for wrong song" do
     login_user(users(:paul))
     assert_no_difference "Song.count" do
-      begin
         delete :destroy, id: @other_song
-      rescue ActiveRecord::RecordNotFound
-      end
-      assert_redirected_to root_path
     end
+    assert_redirected_to root_path
   end
 
 end

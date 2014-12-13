@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141208045147) do
+ActiveRecord::Schema.define(version: 20141212160728) do
+
+  create_table "comments", force: true do |t|
+    t.text     "content"
+    t.integer  "song_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "songs", force: true do |t|
     t.integer  "s_id"
@@ -22,6 +30,7 @@ ActiveRecord::Schema.define(version: 20141208045147) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "comments_count", default: 0
   end
 
   add_index "songs", ["user_id", "created_at"], name: "index_songs_on_user_id_and_created_at"
