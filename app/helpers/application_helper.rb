@@ -8,7 +8,7 @@ module ApplicationHelper
       else
          text = username
       end
-      sanitize text.gsub(/\n/, '<br/>'), tags: %w{ br a }, attributes: %w{ href }
-   end.html_safe
+   end
+    sanitize text.gsub(/\n/, '<br/>'), tags: %w{ br a }, attributes: %w{ href }
   end
 end

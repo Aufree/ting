@@ -23,8 +23,10 @@
           = parse_text(song.content)
       .song-footer
         .com-count
-          i.green.comment.icon
-          a = song.comments.size
+          - author = song_url(song) + "#comments"
+          = link_to author do 
+            i.green.comment.icon
+            = song.comments.size
         .musician
           = image_tag(song.user.avatar_url(:thumb), class: "ui avatar image")
           = link_to song.user.name, song.user

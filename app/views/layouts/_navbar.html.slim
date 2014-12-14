@@ -1,6 +1,6 @@
 - if logged_in?
   .ui.large.vertical.labeld.menu
-    .ui.header.item.center.green.label = current_user.name
+    .ui.header.item.center.blue.label = current_user.name
     = link_to notifications_path, class: "item" do
       - count = current_user.notifications.unread.count
       - if count > 0

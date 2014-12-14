@@ -19,11 +19,12 @@
       self.initSemanticUiTools()
       self.initAvatarPreview()
       self.initUploadAvatar()
-      self.initGetXiamiInfo()
+      self.initCheckXiamiInfo()
       return
 
     sitePageUpdate: ->
       self = this
+      self.initGetXiamiInfo()
       self.initCloseMessage()
       self.initGetNotificationsCount()
       return
@@ -93,7 +94,7 @@
               $audio.attr 'data-xiami_id', data.id
               $('.pause').removeClass('pause').addClass 'play'
               play_icon.removeClass('play').addClass 'pause'
-              $('#player').trigger "play"
+              $player.play()
             return
 
         $audio.on 'ended', ->
@@ -115,7 +116,29 @@
           ),30000
       return
 
-
+    initCheckXiamiInfo: ->
+      $('.check-xiami').click ->
+        $('#song-errors').removeClass().html ""
+        s_id = $('input#song_s_id').val()
+        $btn = $(this)
+        $btn.addClass 'loading'
+        if s_id.length > 0
+          $.get("http://inmusic.sinaapp.com/xiami_api/" + s_id, (data) ->
+            $('input#song_title').val(data.title)
+            $('input#song_artist').val(data.singer)
+            $('#song-errors').addClass("animated zoomIn").html '<div id="error_explanation"><div class="ui success message center">检测通过, 填写分享内容后即可提交</div></div>'
+            return
+          ).fail( -> 
+            $('#song-errors').addClass("animated bounceIn").html '<div id="error_explanation"><div class="ui error message center">未获取到该歌曲的相关信息</div></div>'
+            return
+          ).always ->
+            $btn.removeClass 'loading'
+            return
+        else
+          $('#song-errors').addClass("animated flash").html('<div id="error_explanation"><div class="ui error message center">请先填写虾米 ID</div></div>')
+          $(this).removeClass 'loading'
+        return
+      return
 
   window.Boker = Boker
   return

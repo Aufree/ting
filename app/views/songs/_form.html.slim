@@ -2,14 +2,17 @@
   #song-errors
     = render 'shared/error_messages', object: song
   .ui.form
-    .inline.field
-      .ui.pointing.right.label http://www.xiami.com/song/
-      = f.text_field :s_id, placeholder: "虾米 ID"
+    .fields
+      .eight.wide.field
+        .ui.labeled.input
+          .ui.teal.label http://www.xiami.com/song/
+          = f.text_field :s_id, placeholder: "虾米 ID"
+      .four.wide.field
+        = f.text_field :title, placeholder: "歌曲名称(自动抓取)", disabled: "disabled"
+      .four.wide.field
+        = f.text_field :artist, placeholder: "歌手(自动抓取)", disabled: "disabled"
     .field
-      = f.text_field :title, placeholder: "歌曲名称(自动抓取)", disabled: "disabled"
-    .field
-      = f.text_field :artist, placeholder: "歌手(自动抓取)", disabled: "disabled"
-    .field
-      = f.text_area :content, placeholder: "评价"
+      = f.text_area :content, placeholder: "分享内容"
       = f.hidden_field :pic
     = f.submit "发布", class: "ui submit button orange right floated", data: { disable_with: "提交中" }
+    .ui.yellow.button.right.floated.check-xiami 检测
