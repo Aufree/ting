@@ -22,7 +22,7 @@ class SessionsController < ApplicationController
   def destroy
     logout
     redirect_to root_path
-    flash[:success] = "退出成功"
+    flash[:success] = "成功退出"
   end
 
 end

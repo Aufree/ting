@@ -20,6 +20,7 @@
       self.initAvatarPreview()
       self.initUploadAvatar()
       self.initCheckXiamiInfo()
+      self.initLoadingForm()
       return
 
     sitePageUpdate: ->
@@ -30,9 +31,12 @@
       return
 
     initSemanticUiTools: ->
-      $(".user-avatar-upload").popup()
+      $(".run-popup").popup()
       $(".ui.selection.dropdown").dropdown()
       $('.ui.sticky').sticky({offset: 100, bottomOffset: 50, context: '#main'})
+      $('.modal-toggle').click ->
+        $('.ui.modal').modal('show')
+        return
       return
 
     initAvatarPreview: ->
@@ -126,7 +130,7 @@
           $.get("http://inmusic.sinaapp.com/xiami_api/" + s_id, (data) ->
             $('input#song_title').val(data.title)
             $('input#song_artist').val(data.singer)
-            $('#song-errors').addClass("animated zoomIn").html '<div id="error_explanation"><div class="ui success message center">检测通过, 填写分享内容后即可提交</div></div>'
+            $('#song-errors').addClass("animated zoomIn").html '<div id="error_explanation"><div class="ui success message center">检测通过, 填写分享内容后即可发布</div></div>'
             return
           ).fail( -> 
             $('#song-errors').addClass("animated bounceIn").html '<div id="error_explanation"><div class="ui error message center">未获取到该歌曲的相关信息</div></div>'
@@ -139,6 +143,10 @@
           $(this).removeClass 'loading'
         return
       return
+
+    initLoadingForm: ->
+      $(':submit').click ->
+        $('.ui.form').addClass "loading"
 
   window.Boker = Boker
   return

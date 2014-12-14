@@ -1,3 +1,4 @@
+$('.ui.form').removeClass('loading')
 <% if @user.errors.empty? %>
   Turbolinks.visit('<%= root_path %>');
 <% else %>

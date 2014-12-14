@@ -6,6 +6,7 @@
   $('#song-errors').html("<%= j render 'shared/error_messages', object: @song %>");
   $('#error_explanation').transition('tada');
 <% end %>
+$('.ui.form').removeClass('loading')
 
 function animated() {
   $('#error_explanation').html("");

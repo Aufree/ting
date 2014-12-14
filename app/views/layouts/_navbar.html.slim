@@ -1,6 +1,8 @@
 - if logged_in?
   .ui.large.vertical.labeld.menu
-    .ui.header.item.center.blue.label = current_user.name
+    .ui.header.item.center.teal.label 
+      = link_to current_user do
+        = image_tag current_user.avatar_url(:thumb), class: "ui circular image user-avatar run-popup", data: { content: "查看个人信息", variation: "large"}
     = link_to notifications_path, class: "item" do
       - count = current_user.notifications.unread.count
       - if count > 0
@@ -8,8 +10,12 @@
       - else
         #unread-count.ui.label = count
       | 通知
-    = link_to "设置", edit_user_path(current_user), class: "item"
-    = link_to "退出", :logout, method: :delete, class: "item"
+    = link_to edit_user_path(current_user), class: "item" do
+      i.settings.blue.icon
+      | 设置
+    = link_to :logout, method: :delete, class: "item" do
+      i.sign.out.red.icon
+      | 退出
 - else
   .ui.card
     = render 'sessions/form'

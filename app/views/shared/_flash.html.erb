@@ -1,6 +1,12 @@
 <% flash.each do |key, value| %>
-  <div class="ui <%= key %> message flash">
-    <i class="close icon"></i>
+  <div class="ui <%= key %> message flash center">
   	  <%= value %>
   </div>
 <% end %>
+<script>
+  $(function(){
+    setTimeout(function(){
+      $(".ui.flash").closest(".message").addClass('animated zoomOutUp')
+    },2000)
+  })
+</script>
