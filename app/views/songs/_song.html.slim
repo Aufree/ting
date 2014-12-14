@@ -25,6 +25,6 @@
         .com-count
           i.green.comment.icon
           a = song.comments.size
-        .musicer
+        .musician
           = image_tag(song.user.avatar_url(:thumb), class: "ui avatar image")
           = link_to song.user.name, song.user

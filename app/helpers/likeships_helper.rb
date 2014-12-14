@@ -1,49 +1,6 @@
-# module LikeshipsHelper
-#   def likeable_likes_tag like
-#     @like = Object.const_get(like[:likeable_type]).where(id: like[:likeable_id]).first
-#     if @like.likeships.count > 0
-#       likes_count = @like.likeships.count
-#     else
-#       likes_count = ''
-#     end
-
-#     if current_user && current_user.liking?(like)
-#       link_title = "unlike"
-#       link_path_method = "delete"
-#      fa_icon = '<i class="red heart icon"></i>'
-#     else
-#       link_title = "like"
-#       link_path_method = "post"
-#      fa_icon = '<i class="heart empty icon"></i>'
-#     end
-
-#     if current_user.blank?
-#       "#{likes_count}#{fa_icon}".html_safe 
-#     else
-#       link_to "#{likes_count}#{fa_icon}".html_safe, 
-#                                                         likeship_path(like), 
-#                                                         title: link_title, 
-#                                                         class: "animated zoomIn",
-#                                                         method: link_path_method, 
-#                                                         remote: true
-#       end
-
-#   end
-
-#   def correct_path
-#     if params[:likeable_type].to_s == "Song"
-#       post_path(params[:likeable_id])
-#     elsif params[:likeable_type].to_s == "Comment"
-#       Comment.find(params[:likeable_id]).song
-#     end
-#   end
-# end
-
-
 module LikeshipsHelper
   def likeable_likes_tag like
-
-    @count = current_user.likeships.where("likeable_type = ? and likeable_id = ?", like[:likeable_type], like[:likeable_id]).count
+    @count = Likeship.where("likeable_type = ? and likeable_id = ?", like[:likeable_type], like[:likeable_id]).count
     if @count > 0
       likes_count = @count
     else
@@ -57,7 +14,7 @@ module LikeshipsHelper
     else
       link_title = "like"
       link_path_method = "post"
-     fa_icon = '<i class="heart empty icon"></i>'
+     fa_icon = '<i class="blue heart empty icon"></i>'
     end
 
     if current_user.blank?

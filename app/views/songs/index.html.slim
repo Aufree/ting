@@ -9,20 +9,10 @@
 
     .right.ui.rail
       .ui.sticky
-        - if logged_in?
-          .ui.card
-            .content.center
-              .h4 = current_user.name
-            .extra.content
-              .ui.vertical.labeld.menu
-                a.item Hello
-        - else
-          .ui.card
-            = render 'sessions/form'
+        = render 'layouts/navbar'
 
     #songs
       - for song in @songs
         = render 'song', song: song
-  .five.wide.column
 
 audio id="player" data-xiami_id="-1"

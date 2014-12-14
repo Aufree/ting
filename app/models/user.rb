@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   has_many :songs, dependent: :delete_all
   has_many :comments, dependent: :delete_all
   has_many :likeships, foreign_key: "user_id", dependent: :destroy
+  has_many :notifications, dependent: :delete_all
   VALID_EMAIL_REGEX =/\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
   VALID_NAME_REGEX = /\A[A-Za-z][A-Za-z0-9._-]{2,19}\z/
   validates :name, presence: true, 

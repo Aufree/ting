@@ -1,0 +1,15 @@
+- comment = notification.subject
+- user = comment.user
+- song = comment.song
+- author = song_path(song) + "#comment-#{comment.id}"
+
+.label
+  = image_tag user.avatar_url(:small), class: "ui avatar image"
+.content
+  .summary
+    = link_to user.name, user, class: "ui label red"
+    |  在分享的歌曲 
+    = link_to song.title, author
+    |  中提到了你
+  .extra.text
+    = parse_text(comment.content)

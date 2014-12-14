@@ -1,0 +1,15 @@
+- if logged_in?
+  .ui.large.vertical.labeld.menu
+    .ui.header.item.center.green.label = current_user.name
+    = link_to notifications_path, class: "item" do
+      - count = current_user.notifications.unread.count
+      - if count > 0
+        #unread-count.ui.red.label = count
+      - else
+        #unread-count.ui.label = count
+      | 通知
+    = link_to "设置", edit_user_path(current_user), class: "item"
+    = link_to "退出", :logout, method: :delete, class: "item"
+- else
+  .ui.card
+    = render 'sessions/form'

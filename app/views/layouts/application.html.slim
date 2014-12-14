@@ -6,9 +6,11 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   body
-    = render 'layouts/topbar'
+    .ui.fixed.green.inverted.menu.center
+      = link_to root_path, class: "item" do 
+        i.music.icon
     .container
       = render 'shared/flash'
       = yield
     javascript:
-      $('.ui.sticky').sticky('refresh')
+      $('.ui.sticky').sticky('refresh');

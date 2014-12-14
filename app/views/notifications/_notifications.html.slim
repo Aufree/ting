@@ -1,0 +1,8 @@
+#notifications
+  .ui.animated.list
+    - @notifications.each do |notification|
+      .ui.feed
+        .event id="notification-#{notification.id}"
+          = render "notifications/notification/#{notification.name}", notification: notification
+          = link_to notification_path(notification), remote: true, method: :delete, data: { confirm: "确定删除？" }, class: "pull-right delete-notification" do
+               i.red.trash.icon

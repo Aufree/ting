@@ -25,6 +25,7 @@
     sitePageUpdate: ->
       self = this
       self.initCloseMessage()
+      self.initGetNotificationsCount()
       return
 
     initSemanticUiTools: ->
@@ -101,6 +102,20 @@
           return
         return
       return
+
+    initGetNotificationsCount: ->
+      if $('#unread-count').length > 0
+        setTimeout (->
+          $.post "/notifications/count", (data) ->
+            if data > 0
+              ( if data > 99 then '99' else data)
+              $('#unread-count').addClass('red').text data
+            return
+          return
+          ),30000
+      return
+
+
 
   window.Boker = Boker
   return

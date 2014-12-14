@@ -1,0 +1,8 @@
+$(function(){
+    $('#notification-<%= @notification.id %>').addClass('animated rollOut')
+                               .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', 
+        function(){
+        $(this).remove();
+        }
+    );
+});

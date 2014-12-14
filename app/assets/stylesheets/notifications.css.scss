@@ -1,0 +1,12 @@
+h3.notifications-header {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+#notifications {
+  margin-top: 30px;
+    .ui.animated.list {
+        .item {
+            padding: 10px;
+        }
+    }
+}

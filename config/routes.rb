@@ -8,6 +8,12 @@ resources :songs do
 end
 resource :likeship, only: [ :create, :destroy ]
 resources :pages
+resources :notifications, only: [ :index, :destroy ] do
+  collection do
+    post :count
+    delete :clear
+  end
+end
 
 get 'login' => 'sessions#new', :as => :login
 delete 'logout' => 'sessions#destroy', :as => :logout

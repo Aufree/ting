@@ -63,3 +63,17 @@ html.turbolinks-progress-bar::before {
     animation-play-state: paused;
     -webkit-animation-play-state: paused;
 }
+.pull-left {
+    float: left;
+}
+.pull-right {
+    float: right;
+}
+
+//Chrome
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+    box-shadow:0 0 0 60px #fff inset;
+    -webkit-text-fill-color: #333;
+}

@@ -13,4 +13,5 @@
         = link_to [@song, comment], method: :delete, remote: true, data: { confirm: "确认删除" } do
           i.trash.icon
       - else
-        a.reply reply
+        a.reply
+          i.reply.icon.blue
