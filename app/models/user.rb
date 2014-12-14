@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
   has_many :songs, dependent: :delete_all
   has_many :comments, dependent: :delete_all
+  has_many :likeships, foreign_key: "user_id", dependent: :destroy
   VALID_EMAIL_REGEX =/\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
   VALID_NAME_REGEX = /\A[A-Za-z][A-Za-z0-9._-]{2,19}\z/
   validates :name, presence: true, 
@@ -21,5 +22,18 @@ class User < ActiveRecord::Base
   #Find user by name
   def to_param
     name
+  end
+  
+  #Like
+  def liking?(likeable)
+    likeships.find_by(likeable)
+  end
+
+  def like!(type, id)
+    likeships.create!(likeable_type: type, likeable_id: id)
+  end  
+
+  def unlike!(type, id)
+    likeships.find_by(likeable_type: type, likeable_id: id).destroy
   end
 end

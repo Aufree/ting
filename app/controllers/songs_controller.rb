@@ -11,8 +11,8 @@
   end
 
   def show
-    @song = Song.includes(:user, :comments).find(params[:id])
-    @comments = @song.comments
+    @song = Song.includes(:comments).find(params[:id])
+    @comments = @song.comments.includes(:user, :likeships)
   end
   
   def create

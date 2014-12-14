@@ -6,11 +6,11 @@
     a.author = user.name
     .text.comment-content = parse_text(comment.content)
     .actions
-      a.like
-        i.heart.icon
-        | Like
+      span.item id="like-comment-#{comment.id}"
+        - @likeable = Likeship.likeable(comment)
+        = likeable_likes_tag @likeable
       - if current_user == user
         = link_to [@song, comment], method: :delete, remote: true, data: { confirm: "确认删除" } do
-          i.red.trash.icon
+          i.trash.icon
       - else
         a.reply reply

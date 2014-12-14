@@ -2,6 +2,7 @@ class Song < ActiveRecord::Base
   include SongsHelper
   belongs_to :user
   has_many :comments, dependent: :delete_all
+  has_many :likeships, as: :likeable, foreign_key: "likeable_id", dependent: :destroy
   validates :user_id, presence: true
   validates :content, presence: true, length: { maximum: 10000 }
   validates :title, :artist, presence: { message: "未被抓取" }

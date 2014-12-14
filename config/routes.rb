@@ -6,6 +6,7 @@ resources :users, only: [ :new, :create, :update, :edit, :show ]
 resources :songs do
   resources :comments
 end
+resource :likeship, only: [ :create, :destroy ]
 resources :pages
 
 get 'login' => 'sessions#new', :as => :login

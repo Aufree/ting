@@ -40,9 +40,6 @@ gem "font-awesome-rails"
   gem 'mini_magick'
   gem 'remotipart'
 
-  # Tag
-  gem 'acts-as-taggable-on'
-
   # Pagination
   gem 'kaminari'
 

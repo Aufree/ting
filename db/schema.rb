@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141212160728) do
+ActiveRecord::Schema.define(version: 20141213092401) do
 
   create_table "comments", force: true do |t|
     t.text     "content"
@@ -21,6 +21,16 @@ ActiveRecord::Schema.define(version: 20141212160728) do
     t.datetime "updated_at"
   end
 
+  create_table "likeships", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "likeable_id"
+    t.string   "likeable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "likeships", ["user_id", "likeable_id", "likeable_type"], name: "index_likeships_on_user_id_and_likeable_id_and_likeable_type", unique: true
+
   create_table "songs", force: true do |t|
     t.integer  "s_id"
     t.string   "title"
@@ -28,9 +38,9 @@ ActiveRecord::Schema.define(version: 20141212160728) do
     t.string   "pic"
     t.text     "content"
     t.integer  "user_id"
+    t.integer  "comments_count", default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "comments_count", default: 0
   end
 
   add_index "songs", ["user_id", "created_at"], name: "index_songs_on_user_id_and_created_at"

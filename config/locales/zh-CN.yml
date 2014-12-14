@@ -1,6 +1,12 @@
 zh-CN:
   activerecord:
     attributes:
+      user:
+        name: "名称"
+        email: "邮箱"
+        password: "密码"
+        password_confirmation: "确认密码"
+        bio: "个人说明"
       song:
         s_id: "虾米 ID "
         title: "歌曲名称"

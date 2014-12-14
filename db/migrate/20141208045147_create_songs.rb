@@ -7,6 +7,7 @@ class CreateSongs < ActiveRecord::Migration
       t.string :pic
       t.text :content
       t.integer :user_id
+      t.integer :comments_count, default: 0
 
       t.timestamps
     end

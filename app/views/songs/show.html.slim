@@ -6,6 +6,10 @@
       iframe src="http://miantiao.jd-app.com/xiamiplayer/#{id}" frameborder="0" scrolling="0" width="430" height="200" allowtransparency=""
       .song-content = parse_text(@song.content)
       .toolbar
+        span.item id="like-song-#{@song.id}"
+          - @likeable = Likeship.likeable(@song)
+          = likeable_likes_tag @likeable
+
         - if current_user == @song.user
           = link_to edit_song_path(@song) do
             i.green.icon.pencil

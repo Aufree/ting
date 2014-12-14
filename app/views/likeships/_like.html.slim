@@ -1,0 +1,5 @@
+i.red.heart.icon
+= form_for current_user.likeships.build do |f|
+  = f.hidden_field :likeable_type, value: @likeable[:likeable_type]
+  = f.hidden_field :likeable_id, value: @likeable[:likeable_id]
+  = f.submit

@@ -1,0 +1,6 @@
+one:
+  likeable_type: Song
+  likeable_id: 1
+two:
+  likeable_type: Song
+  likeable_id: 1
