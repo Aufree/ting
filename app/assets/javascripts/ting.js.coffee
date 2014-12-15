@@ -26,11 +26,11 @@
       self.initCheckXiamiInfo()
       self.initLoadingForm()
       self.initCustomDataConfirm()
+      self.initGetXiamiInfo()
       return
 
     sitePageUpdate: ->
       self = this
-      self.initGetXiamiInfo()
       self.initCloseMessage()
       self.initGetNotificationsCount()
       return
