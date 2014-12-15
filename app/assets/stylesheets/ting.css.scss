@@ -12,6 +12,9 @@ html.turbolinks-progress-bar::before {
         padding-top: 100px;
     }
 }
+:focus {
+    outline: none;
+}
 .flash {
     margin-right: -14px !important;
     box-shadow: none !important;

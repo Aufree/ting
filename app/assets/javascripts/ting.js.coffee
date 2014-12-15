@@ -10,8 +10,12 @@
         self.sitePageUpdate()
         return
 
+      PageRestore = ->
+        self.sitePageRestore()
+
       $(document).on "page:load", Bootup
       $(document).on "page:update", PageUpdate
+      $(document).on "page:restore", PageRestore
       return
 
     siteBootUp: ->
@@ -29,6 +33,11 @@
       self.initGetXiamiInfo()
       self.initCloseMessage()
       self.initGetNotificationsCount()
+      return
+
+    sitePageRestore: ->
+      self = this
+      self.initRemoveLoading()
       return
 
     initSemanticUiTools: ->
@@ -168,6 +177,9 @@
         $(".confirm-modal").modal "show"
         $(".confirm-modal .actions .positive").on "click", ->
           $.rails.confirmed link
+
+    initRemoveLoading: ->
+      $('.ui.form').removeClass "loading"
 
 
   window.Boker = Boker

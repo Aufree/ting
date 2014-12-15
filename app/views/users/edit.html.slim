@@ -11,5 +11,12 @@
         .field
           = f.text_field :email, placeholder: "邮箱", disabled: "disabled"
         .field
+          .ui.labeled.input
+            .ui.green.label http://www.douban.com/people/
+            = f.text_field :douban, placeholder: "豆瓣"
+        .field
           = f.text_field :bio, placeholder: "简介"
-        = f.submit "保存更改", class: "ui fluid green button"
+        .ui.buttons.session-buttons
+          = link_to "个人页面", user_path(@user), class: "ui button orange"
+          .or
+          = f.submit "保存更改", class: "ui blue button"

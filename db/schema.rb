@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141214004426) do
+ActiveRecord::Schema.define(version: 20141215105536) do
 
   create_table "comments", force: true do |t|
     t.text     "content"
@@ -65,8 +65,7 @@ ActiveRecord::Schema.define(version: 20141214004426) do
     t.string   "salt",                            null: false
     t.string   "avatar"
     t.string   "bio"
-    t.string   "weibo"
-    t.string   "weixin"
+    t.string   "douban"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "remember_me_token"
