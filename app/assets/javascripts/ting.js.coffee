@@ -97,22 +97,29 @@
             $('.pause').removeClass('pause').addClass 'play'
         else
           play_icon.addClass('spinner rotating')
-          $.get 'http://inmusic.sinaapp.com/xiami_api/' + $(this).data('xiami_id'), (data) ->
-            if data
-              $('.stop-rotate').removeClass 'stop-rotate'
-              play_icon.removeClass('spinner rotating')
-              $('.rotating').removeClass 'rotating'
-              self.siblings('.image').addClass 'rotating'
-              $audio.attr 'src', data.songurl
-              $audio.attr 'data-xiami_id', data.id
-              $('.pause').removeClass('pause').addClass 'play'
-              play_icon.removeClass('play').addClass 'pause'
-              $player.play()
-            return
+          playMusic = (music) ->
+            $.get 'http://inmusic.sinaapp.com/xiami_api/' + music, (data) ->
+              if data
+                $('.stop-rotate').removeClass 'stop-rotate'
+                play_icon.removeClass('spinner rotating')
+                $('.rotating').removeClass 'rotating'
+                self.siblings('.image').addClass 'rotating'
+                $audio.attr 'src', data.songurl
+                $audio.attr 'data-xiami_id', data.id
+                $('.pause').removeClass('pause').addClass 'play'
+                play_icon.removeClass('play').addClass 'pause'
+                $player.play()
+              return
+          playMusic($(this).data('xiami_id'))
 
         $audio.on 'ended', ->
           $('.rotating').removeClass 'rotating'
           $('.pause').removeClass('pause').addClass 'play'
+          next_song = $(self).parents('.songs-list').next('.songs-list')
+          if next_song != null
+            next_song.find('.playBtn').click()
+          else
+            $player.paused()
           return
         return
       return
