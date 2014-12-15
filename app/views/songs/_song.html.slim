@@ -8,7 +8,7 @@
     .eleven.wide.column.song-info
       - if current_user == song.user
         .operate
-          = link_to edit_song_path(song) do 
+          = link_to edit_song_path(song), class: "edit-song" do 
             i.green.pencil.icon
           = link_to song_path(song), data: { method: "delete", confirm: "确认删除？", remote: true } do 
             i.red.trash.icon

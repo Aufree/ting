@@ -5,7 +5,11 @@
       i.idea.icon.red
       | Ting
     - if logged_in?
-      = render 'songs/form', song: current_user.songs.new
+    .ui.green.button.modal-toggle  分享歌曲
+    .ui.modal.song-form
+      i.close.icon
+      .content
+        = render 'songs/form', song: current_user.songs.new
 
     .right.ui.rail
       .ui.sticky

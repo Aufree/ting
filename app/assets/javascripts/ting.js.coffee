@@ -21,6 +21,7 @@
       self.initUploadAvatar()
       self.initCheckXiamiInfo()
       self.initLoadingForm()
+      self.initCustomDataConfirm()
       return
 
     sitePageUpdate: ->
@@ -35,8 +36,7 @@
       $(".ui.selection.dropdown").dropdown()
       $('.ui.sticky').sticky({offset: 100, bottomOffset: 50, context: '#main'})
       $('.modal-toggle').click ->
-        $('.ui.modal').modal('show')
-        return
+        $('.song-form').modal('show')
       return
 
     initAvatarPreview: ->
@@ -147,6 +147,28 @@
     initLoadingForm: ->
       $(':submit').click ->
         $('.ui.form').addClass "loading"
+
+    initCustomDataConfirm: ->
+      $.rails.allowAction = (link) ->
+        return true  unless link.attr("data-confirm")
+        $.rails.showConfirmDialog link
+        false
+
+      $.rails.confirmed = (link) ->
+        link.removeAttr "data-confirm"
+        link.trigger "click.rails"
+
+      $.rails.showConfirmDialog = (link) ->
+        html = undefined
+        message = undefined
+        $(".confirm-modal").remove()
+        message = link.attr("data-confirm")
+        html = "<div class=\"ui modal small confirm-modal\"><div class=\"content\"><p>" + message + "</p></div><div class=\"actions\"><div class=\"ui negative button\">No</div><div class=\"ui positive right labeled icon button\">Yes<i class=\"checkmark icon\"></i></div></div></div>"
+        $("body").append html
+        $(".confirm-modal").modal "show"
+        $(".confirm-modal .actions .positive").on "click", ->
+          $.rails.confirmed link
+
 
   window.Boker = Boker
   return
