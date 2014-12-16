@@ -154,6 +154,8 @@
             $('#song-errors').addClass("animated zoomIn").html '<div id="error_explanation"><div class="ui success message center">检测通过, 填写分享内容后即可发布</div></div>'
             return
           ).fail( -> 
+            $('input#song_title').val("")
+            $('input#song_artist').val('')
             $('#song-errors').addClass("animated bounceIn").html '<div id="error_explanation"><div class="ui error message center">未获取到该歌曲的相关信息</div></div>'
             return
           ).always ->
