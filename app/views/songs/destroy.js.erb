@@ -1,5 +1,5 @@
 $(function(){
-    $('#song-<%= @song.id %>').addClass('animated bounceOutRight')
+    $('#song-<%= @song.id %>').addClass('animated flipOutX')
                                                   .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', 
         function(){
             $('#song-<%= @song.id %>').remove();
