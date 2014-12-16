@@ -104,8 +104,9 @@
                 play_icon.removeClass('spinner rotating')
                 $('.rotating').removeClass 'rotating'
                 self.siblings('.image').addClass 'rotating'
-                $audio.attr 'src', data.songurl
-                $audio.attr 'data-xiami_id', data.id
+                $audio.attr
+                  "src": data.songurl
+                  "data-xiami_id": data.id
                 $('.pause').removeClass('pause').addClass 'play'
                 play_icon.removeClass('play').addClass 'pause'
                 $player.play()
@@ -116,10 +117,12 @@
           $('.rotating').removeClass 'rotating'
           $('.pause').removeClass('pause').addClass 'play'
           next_song = $(self).parents('.songs-list').next('.songs-list')
-          if next_song != null
+          if next_song.length > 0
             next_song.find('.playBtn').click()
           else
-            $player.paused()
+            $audio.attr
+              "src": ''
+              "data-xiami_id": -1
           return
         return
       return
