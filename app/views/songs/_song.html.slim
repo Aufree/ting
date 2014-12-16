@@ -15,7 +15,7 @@
       .ui.right
         h3.header
           i.orange.sound.icon
-          = link_to song.title, song
+          = link_to song.title.html_safe, song
         .singer
           | 演唱 
           a = song.artist

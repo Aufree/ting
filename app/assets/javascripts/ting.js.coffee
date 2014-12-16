@@ -144,7 +144,9 @@
         $btn.addClass 'loading'
         if s_id.length > 0
           $.get("http://inmusic.sinaapp.com/xiami_api/" + s_id, (data) ->
-            $('input#song_title').val(data.title)
+            # parse single quotation marks for song title
+            title = data.title.replace(/&#39;/,"'")
+            $('input#song_title').val(title)
             $('input#song_artist').val(data.singer)
             $('#song-errors').addClass("animated zoomIn").html '<div id="error_explanation"><div class="ui success message center">检测通过, 填写分享内容后即可发布</div></div>'
             return
