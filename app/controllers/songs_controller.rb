@@ -3,7 +3,7 @@
   before_action :find_song, only: [ :edit, :update, :destroy ]
 
   def index
-    @songs = Song.includes(:user).all.order("created_at desc")
+    @songs = Song.includes(:user).all.order("created_at desc").page params[:page]
   end
 
   def new
@@ -18,7 +18,7 @@
   def create
    @song = current_user.songs.build(song_params)
     if @song.save
-      flash[:success] = "发布成功"
+      flash.now[:success] = "发布成功"
       respond_to do |format|
         format.html { redirect_to root_path }
         format.js
@@ -37,7 +37,7 @@
 
   def update
     if @song.update_attributes params.require(:song).permit(:content)
-      flash[:success] = "更新成功"
+      flash.now[:success] = "更新成功"
       respond_to do |format|
         format.html { redirect_to @song }
         format.js
@@ -53,7 +53,7 @@
   def destroy
     @song = current_user.songs.find(params[:id])
     if @song.destroy
-      flash[:success] = "删除成功"
+      flash.now[:success] = "删除成功"
       respond_to do |format|
         format.html { redirect_to root_path }
         format.js

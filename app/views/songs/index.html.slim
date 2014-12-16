@@ -18,5 +18,5 @@
     #songs
       - for song in @songs
         = render 'song', song: song
-
+    = paginate @songs
 audio id="player" data-xiami_id="-1"
