@@ -26,13 +26,14 @@
       self.initCheckXiamiInfo()
       self.initLoadingForm()
       self.initCustomDataConfirm()
-      self.initGetXiamiInfo()
+      self.initInfiniteScrolling()
       return
 
     sitePageUpdate: ->
       self = this
       self.initCloseMessage()
       self.initGetNotificationsCount()
+      self.initPlayer()
       return
 
     sitePageRestore: ->
@@ -46,6 +47,7 @@
       $('.ui.sticky').sticky({offset: 100, bottomOffset: 50, context: '#main'})
       $('.modal-toggle').click ->
         $('.song-form').modal('show')
+      $('#song-loading').progress('increment');
       return
 
     initAvatarPreview: ->
@@ -78,7 +80,7 @@
         return
       return
 
-    initGetXiamiInfo: ->
+    initPlayer: ->
       $('.album-pic').on "click", '.playBtn', ->
         self = $(this)
         play_icon = self.find('i.play')
@@ -195,6 +197,17 @@
     initRemoveLoading: ->
       $('.ui.form').removeClass "loading"
 
+    initInfiniteScrolling: ->
+      $('#pagination').css('display', 'none')
+      $("#songs").infinitescroll
+        loading:
+          finishedMsg: '<div class="ui green message center">全部加载完毕</div>'
+          img: '/assets/loading.gif'
+          msgText: ""
+        navSelector: "nav.pagination"
+        nextSelector: "nav.pagination a[rel=next]"
+        itemSelector: "#songs .songs-list"
+        animate: false
 
   window.Boker = Boker
   return
