@@ -15,4 +15,8 @@
       = f.text_area :content, placeholder: "分享内容"
       = f.hidden_field :pic
     = f.submit "发布", class: "ui submit button orange right floated", data: { disable_with: "提交中" }
-    .ui.yellow.button.right.floated.check-xiami 检测
+javascript:
+  if($('input#song_title').val().length > 0){
+    title = $('input#song_title').val().replace(/&#039;/,"'")
+    $('input#song_title').val(title)  
+    }

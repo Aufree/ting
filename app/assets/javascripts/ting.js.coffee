@@ -27,13 +27,13 @@
       self.initLoadingForm()
       self.initCustomDataConfirm()
       self.initInfiniteScrolling()
+      self.initPlayer()
       return
 
     sitePageUpdate: ->
       self = this
       self.initCloseMessage()
       self.initGetNotificationsCount()
-      self.initPlayer()
       return
 
     sitePageRestore: ->
@@ -142,7 +142,7 @@
       return
 
     initCheckXiamiInfo: ->
-      $('.check-xiami').click ->
+      $('input#song_s_id').blur ->
         $('#song-errors').removeClass().html ""
         s_id = $('input#song_s_id').val()
         $btn = $(this)
