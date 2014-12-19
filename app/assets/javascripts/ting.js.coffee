@@ -27,13 +27,13 @@
       self.initLoadingForm()
       self.initCustomDataConfirm()
       self.initInfiniteScrolling()
-      self.initPlayer()
       return
 
     sitePageUpdate: ->
       self = this
       self.initCloseMessage()
       self.initGetNotificationsCount()
+      self.initPlayer()
       return
 
     sitePageRestore: ->
@@ -81,7 +81,8 @@
       return
 
     initPlayer: ->
-      $('.album-pic').on "click", '.playBtn', ->
+      $('.album-pic .playBtn').unbind('click')
+      $('.album-pic .playBtn').on "click", ->
         self = $(this)
         play_icon = self.find('i.play')
         pause_icon = self.find('i.pause')
@@ -119,7 +120,7 @@
           $('.rotating').removeClass 'rotating'
           $('.pause').removeClass('pause').addClass 'play'
           next_song = $(self).parents('.songs-list').next('.songs-list')
-          if next_song.length > 0
+          if next_song.length
             next_song.find('.playBtn').click()
           else
             $audio.attr
@@ -130,8 +131,10 @@
       return
 
     initGetNotificationsCount: ->
-      if $('#unread-count').length > 0
-        setTimeout (->
+      interval = null
+      clearTimeout(interval)
+      if $('#unread-count').length
+        interval = setTimeout (->
           $.post "/notifications/count", (data) ->
             if data > 0
               ( if data > 99 then '99' else data)
