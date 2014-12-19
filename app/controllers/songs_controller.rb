@@ -1,5 +1,5 @@
   class SongsController < ApplicationController
-  before_action :require_login, only: [ :new, :create, :edit, :update, :destroy ]
+  before_action :require_login, only: [ :new, :create, :collect, :edit, :update, :destroy ]
   before_action :find_song, only: [ :edit, :update, :destroy ]
 
   def index
@@ -13,6 +13,12 @@
   def show
     @song = Song.includes(:comments).find(params[:id])
     @comments = @song.comments.includes(:user, :likeships)
+  end
+
+  def collect
+    songs_id = current_user.likeships.where("likeable_type = ?", "Song").collect(&:likeable_id)
+    songs = Song.find(songs_id).reverse!
+    @songs = Kaminari.paginate_array(songs).page(params[:page])
   end
   
   def create

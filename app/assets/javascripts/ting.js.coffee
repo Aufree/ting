@@ -32,7 +32,7 @@
     sitePageUpdate: ->
       self = this
       self.initCloseMessage()
-      self.initGetNotificationsCount()
+      # self.initGetNotificationsCount()
       self.initPlayer()
       return
 

@@ -10,6 +10,9 @@
       - else
         #unread-count.ui.label = count
       | 通知
+    = link_to :collect, class: "item" do
+      i.star.yellow.icon
+      | 喜欢
     = link_to edit_user_path(current_user), class: "item" do
       i.settings.blue.icon
       | 设置

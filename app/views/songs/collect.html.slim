@@ -1,0 +1,13 @@
+.ui.grid
+  .two.wide.column
+  #main.nine.wide.column
+    .right.ui.rail
+      .ui.sticky
+        = render 'layouts/navbar'
+
+    #songs
+      - for song in @songs
+        = render 'song', song: song
+      #pagination.center
+        = paginate @songs
+audio id="player" data-xiami_id="-1"

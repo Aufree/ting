@@ -7,17 +7,22 @@ class SongsControllerTest < ActionController::TestCase
     @other_song = songs(:two)
   end
 
-  test "shoud redirect create when not loged in" do 
+  test "shoud redirect create when user not loged in" do 
     assert_no_difference 'Song.count' do 
       post :create, song: { s_id: 1, content: "lalala" }
     end
     assert_redirected_to login_url
   end
 
-  test "should redirect destroy when  not loged in" do
+  test "should redirect destroy when user  not loged in" do
     assert_no_difference "Song.count" do 
       delete :destroy, id: @song
     end
+    assert_redirected_to login_url
+  end
+
+  test "should redirect collect when user  not loged in" do
+    get :collect
     assert_redirected_to login_url
   end
 
