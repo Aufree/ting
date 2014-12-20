@@ -27,6 +27,7 @@
       self.initLoadingForm()
       self.initCustomDataConfirm()
       self.initInfiniteScrolling()
+      self.initReplyUser()
       return
 
     sitePageUpdate: ->
@@ -120,7 +121,7 @@
           $('.rotating').removeClass 'rotating'
           $('.pause').removeClass('pause').addClass 'play'
           next_song = $(self).parents('.songs-list').next('.songs-list')
-          if next_song.length
+          if next_song.length > 0
             next_song.find('.playBtn').click()
           else
             $audio.attr
@@ -133,7 +134,7 @@
     initGetNotificationsCount: ->
       interval = null
       clearTimeout(interval)
-      if $('#unread-count').length
+      if $('#unread-count').length > 0
         interval = setTimeout (->
           $.post "/notifications/count", (data) ->
             if data > 0
@@ -211,6 +212,13 @@
         nextSelector: "nav.pagination a[rel=next]"
         itemSelector: "#songs .songs-list"
         animate: false
+
+    initReplyUser: ->
+      $('.actions').click '.reply', ->
+        value = $('textarea').val()
+        name = "@" + $(this).find('.reply').attr 'data-name'
+        $('textarea').val(name + " " + value)
+        $('textarea').focus()
 
   window.Boker = Boker
   return

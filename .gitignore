@@ -37,4 +37,4 @@ bower.json
 # Ignore Spring files.
 /spring/*.pid
 
-public/.DS_Store
+.DS_Store

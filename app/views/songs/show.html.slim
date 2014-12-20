@@ -1,9 +1,8 @@
 - id = @song.s_id
 .ui.grid
-  .three.wide.column
-  .six.wide.column
-    .ui.piled.segment 
-      iframe src="http://miantiao.jd-app.com/xiamiplayer/#{id}" frameborder="0" scrolling="0" width="430" height="200" allowtransparency=""
+  .four.wide.column
+  .eight.wide.column
+    = render 'song', song: @song
       .song-content = parse_text(@song.content)
       .toolbar
         span.item id="like-song-#{@song.id}"
@@ -18,7 +17,7 @@
         = image_tag(@song.user.avatar_url(:small), class: "ui avatar image floated right")
 
     .ui.horizontal.icon.divider
-      i.circular.green.chat.icon
+      i.circular.red.chat.icon
 
     #comments
       .column
@@ -31,4 +30,12 @@
               p 暂无评论
         .ui.horizontal.icon.divider
           i.circular.green.pencil.icon
-        = render 'comments/form'
+        - if logged_in?
+          = render 'comments/form'
+        - else
+          .center
+            = link_to :login
+              .ui.animated.fade.blue.button
+                .visible.content 请先登录后再评论
+                .hidden.content 点击登录
+audio id="player" data-xiami_id="-1"

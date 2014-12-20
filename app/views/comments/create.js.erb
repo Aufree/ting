@@ -1,6 +1,6 @@
 $('.ui.form').removeClass('loading')
 <% if @comment.errors.empty? %>
-  if($('.comment').length > 0){
+  if($('.commenter').length > 0){
       new_comment = "<%= j render 'comment', comment: @comment %>";
       $('.comments').append(new_comment);
       animated();
@@ -15,6 +15,6 @@ $('.ui.form').removeClass('loading')
 <% end %>
 
 function animated() {
-  $('#comment-<%= @comment.id %>').addClass('animated bounceInLeft');
+  $('#comment-<%= @comment.id %>').addClass('animated bounceIn');
   $('textarea').val("");
 }

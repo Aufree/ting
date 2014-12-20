@@ -1,10 +1,10 @@
 $(function(){
-    $('#comment-<%= @comment.id %>').addClass('animated bounceOutRight')
+    $('#comment-<%= @comment.id %>').addClass('animated bounceOut')
                                                                 .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', 
         function(){
             $('#comment-<%= @comment.id %>').remove();
-            if(!$('.comments .comment').length>0){
-                $('.comments').html('暂无评论')
+            if(!$('.comments .commenter').length>0){
+                $('.comments').html('<div class="center">暂无评论</div>')
             }
         }
     );

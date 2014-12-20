@@ -1,6 +1,6 @@
 module ApplicationHelper
   def parse_text(text)
-    text.gsub /@(\w+)/ do |username|
+    text = text.gsub /@(\w+)/ do |username|
       name = username.gsub('@', '')
       user = User.find_by_name(name)
       if user.present?

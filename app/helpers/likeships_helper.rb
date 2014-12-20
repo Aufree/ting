@@ -14,7 +14,7 @@ module LikeshipsHelper
     else
       link_title = "like"
       link_path_method = "post"
-     fa_icon = '<i class="blue heart empty icon"></i>'
+     fa_icon = '<i class="red heart empty icon"></i>'
     end
 
     if current_user.blank?

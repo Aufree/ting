@@ -26,16 +26,14 @@
 .album-pic {
     width: 180px;
     position: relative;
-    .outer-pic.ui.image {
+    .outer-pic {
         width: 180px;
         height: 180px;
+        border: 1px solid #A0FF99;
         img {
             min-width: 180px;
             min-height: 180px;
         }
-    }
-    img {
-        border: 1px solid #A0FF99;
     }
 }
 .operate {
