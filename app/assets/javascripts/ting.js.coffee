@@ -40,6 +40,7 @@
     sitePageRestore: ->
       self = this
       self.initRemoveLoading()
+      $('.ui.sticky').sticky('refresh');
       return
 
     initSemanticUiTools: ->
@@ -48,7 +49,8 @@
       $('.ui.sticky').sticky({offset: 100, bottomOffset: 50, context: '#main'})
       $('.modal-toggle').click ->
         $('.song-form').modal('show')
-      $('#song-loading').progress('increment');
+      $('#song-loading').progress('increment')
+      $('.dimmer-image').dimmer({on: 'hover'})
       return
 
     initAvatarPreview: ->
@@ -82,8 +84,8 @@
       return
 
     initPlayer: ->
-      $('.album-pic .playBtn').unbind('click')
-      $('.album-pic .playBtn').on "click", ->
+      $('.playBtn').unbind('click')
+      $('.playBtn').on "click", ->
         self = $(this)
         play_icon = self.find('i.play')
         pause_icon = self.find('i.pause')
@@ -108,6 +110,7 @@
                 play_icon.removeClass('spinner rotating')
                 $('.rotating').removeClass 'rotating'
                 self.siblings('.image').addClass 'rotating'
+                self.parents('.image').addClass 'rotating'
                 $audio.attr
                   "src": data.songurl
                   "data-xiami_id": data.id

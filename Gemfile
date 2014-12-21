@@ -15,7 +15,7 @@ gem 'coffee-rails', '~> 4.0.1'
 
 # Compass
 gem 'sass-rails', '~> 4.0.5'
-gem 'compass-rails' 
+gem 'compass-rails'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -31,9 +31,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Font-awesome
 gem "font-awesome-rails"
-
- # Semantic-ui
- gem 'semantic-ui-sass', '~> 0.19.3.0'
 
   # Upload avatar
   gem 'carrierwave'

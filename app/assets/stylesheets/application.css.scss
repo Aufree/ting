@@ -1,12 +1,12 @@
 /*
  *= require semantic
  *= require animate
- *= require users
- *= require songs
- *= require comments
- *= require notifications
- *= require ting
  *= require_self
  */
 
 @import "compass";
+@import "users";
+@import "songs";
+@import "comments";
+@import "notifications";
+@import "ting";

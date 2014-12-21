@@ -5,11 +5,14 @@ html.turbolinks-progress-bar::before {
 ::selection {
     background-color: rgba(229, 253, 254, 1);
 }
+body {
+    font-family: arial, sans-serif;
+}
 .container {
     padding-top: 35px;
     padding-right: 14px;
-    .grid {
-        padding-top: 100px;
+    & > .grid {
+        padding-top: 50px;
     }
 }
 :focus {

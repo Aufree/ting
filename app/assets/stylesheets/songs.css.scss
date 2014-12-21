@@ -4,11 +4,22 @@
 #songs {
     margin-top: 20px;
 }
+.song-container {
+    .album-pic {
+        float: left;
+        margin-right: 30px;
+    }
+    .song-content {
+        min-height: 170px;
+    }
+}
 .song-info {
     height: 100%;
-    min-height: 200px;
 }
 .song-content {
+    line-height: 1.6;
+    font-size: 1.1em;
+    color: #6B6B6B;
     margin-top: 15px;
 }
 .song-footer {
@@ -34,6 +45,9 @@
             min-width: 180px;
             min-height: 180px;
         }
+        .dimmer {
+            @include border-radius(50%);
+        }
     }
 }
 .operate {
@@ -47,6 +61,7 @@
 .toolbar {
     min-height: 36px;
     line-height: 36px;
+    margin-left: 10px;
 }
 #infscr-loading {
     img {
