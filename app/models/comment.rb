@@ -36,7 +36,7 @@ class Comment < ActiveRecord::Base
     self.content.gsub /@(\w+)/ do |username|
       name = username.gsub('@', '')
       user = User.find_by_name(name)
-      at_users << user if user.present?
+      at_users << user if user.present? && !at_users.include?(user)
     end
 
     at_users.each do |at_user| 
