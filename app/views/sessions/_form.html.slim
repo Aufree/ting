@@ -7,6 +7,10 @@
         = f.text_field :email, placeholder: "邮箱"
       .field
         = f.password_field :password, placeholder: "密码"
+      .inline.field
+        .ui.toggle.checkbox
+          = f.check_box :remember
+          = f.label :remember, "记住我"
       .ui.buttons.session-buttons
         = link_to "注册", new_user_path, class: "ui button blue"
         .or

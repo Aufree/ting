@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    if @user = login(params[:session][:email], params[:session][:password])
+    if @user = login(params[:session][:email], params[:session][:password], params[:session][:remember])
       flash[:success] = "登录成功"
       respond_to do |format|
         format.html { redirect_back_or_to root_path }
