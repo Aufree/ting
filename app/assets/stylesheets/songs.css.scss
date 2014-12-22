@@ -9,9 +9,6 @@
         float: left;
         margin-right: 30px;
     }
-    .song-content {
-        min-height: 170px;
-    }
 }
 .song-info {
     height: 100%;
@@ -58,14 +55,21 @@
         min-height: 300px;
     }
 }
-.toolbar {
-    min-height: 36px;
-    line-height: 36px;
-    margin-left: 10px;
-}
 #infscr-loading {
     img {
         display: block;
         margin: 0 auto;
     }
+}
+.song-panel {
+    p {
+        margin-top: 30px;
+        color: #00b5ad;
+    }
+}
+.song-tools-divider {
+    padding-left: 5px;
+    padding-right: 5px;
+    color: #ccc;
+
 }
