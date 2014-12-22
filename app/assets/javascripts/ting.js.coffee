@@ -49,6 +49,9 @@
       $('.ui.sticky').sticky({offset: 100, bottomOffset: 50, context: '#main'})
       $('.modal-toggle').click ->
         $('.song-form').modal('show')
+      $('.forget-password').click ->
+        $('.reset-pwd-form').modal('show')
+        return false
       $('#song-loading').progress('increment')
       $('.dimmer-image').dimmer({on: 'hover'})
       return

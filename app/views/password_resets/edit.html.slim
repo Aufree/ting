@@ -1,0 +1,15 @@
+.ui.grid
+  .six.wide.column
+  .four.wide.column
+    h2.header.center 修改密码
+    .ui.form
+      #password-edit-errors
+        = render 'shared/error_messages', object: @user
+      = form_for @user, :url => password_reset_path(@token), :html => {:method => :put} do |f|
+        .field
+          = f.text_field :email, placeholder: "邮箱", disabled: "disabled"
+        .field
+          = f.password_field :password, placeholder: "密码"
+        .field
+          = f.password_field :password_confirmation, placeholder: "确认密码"
+        = f.submit "保存更改", class: "ui blue fluid button"

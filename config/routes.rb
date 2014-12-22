@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'password_resets/create'
+
+  get 'password_resets/edit'
+
+  get 'password_resets/update'
+
 root 'songs#index'
 
 resources :sessions, only: [ :new, :create, :destroy ]
@@ -14,7 +20,7 @@ resources :notifications, only: [ :index, :destroy ] do
     delete :clear
   end
 end
-
+resources :password_resets, only: [ :new, :create, :edit, :update]
 get 'login' => 'sessions#new', :as => :login
 delete 'logout' => 'sessions#destroy', :as => :logout
 get 'collect' => 'songs#collect', :as => :collect

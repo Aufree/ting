@@ -38,3 +38,5 @@ bower.json
 /spring/*.pid
 
 .DS_Store
+
+config/environments/*.rb

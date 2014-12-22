@@ -1,0 +1,5 @@
+= form_tag password_resets_path, :method => :post do
+  .ui.form
+      .field
+        = text_field_tag :email, nil, placeholder: "邮箱"
+      = submit_tag "重置密码", class: "ui blue fluid button"
