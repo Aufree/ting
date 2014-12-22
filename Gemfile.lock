@@ -65,6 +65,7 @@ GEM
       sass (~> 3.2.19)
     compass-rails (2.0.0)
       compass (>= 0.12.2)
+    dalli (2.7.2)
     debug_inspector (0.0.2)
     debugger-linecache (1.2.0)
     erubis (2.7.0)
@@ -226,6 +227,7 @@ DEPENDENCIES
   carrierwave
   coffee-rails (~> 4.0.1)
   compass-rails
+  dalli
   font-awesome-rails
   guard-minitest (= 2.3.1)
   jbuilder (~> 2.0)

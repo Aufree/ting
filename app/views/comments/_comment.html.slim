@@ -1,17 +1,18 @@
-- user= comment.user
-.comment id="comment-#{comment.id}"
-  = link_to user,class: "avatar commenter" do 
-    = image_tag(user.avatar_url(:small))
-  .content
-    = link_to user.name, user, class: "author"
-    .text.comment-content = parse_text(comment.content)
-    .actions
-      span.item id="like-comment-#{comment.id}"
-        - @likeable = Likeship.likeable(comment)
-        = likeable_likes_tag @likeable
-      - if current_user == user
-        = link_to [@song, comment], method: :delete, remote: true, data: { confirm: "确认删除" } do
-          i.pink.trash.icon
-      - else
-        a.reply data-name="#{user.name}"
-          i.reply.icon.blue
+- cache comment do
+  - user= comment.user
+  .comment id="comment-#{comment.id}"
+    = link_to user,class: "avatar commenter" do 
+      = image_tag(user.avatar_url(:small))
+    .content
+      = link_to user.name, user, class: "author"
+      .text.comment-content = parse_text(comment.content)
+      .actions
+        span.item id="like-comment-#{comment.id}"
+          - @likeable = Likeship.likeable(comment)
+          = likeable_likes_tag @likeable
+        - if current_user == user
+          = link_to [@song, comment], method: :delete, remote: true, data: { confirm: "确认删除" } do
+            i.pink.trash.icon
+        - else
+          a.reply data-name="#{user.name}"
+            i.reply.orange.icon

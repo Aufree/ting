@@ -13,4 +13,5 @@ class Song < ActiveRecord::Base
   def set_xiami_info
       get_xiami_info(self)
   end
+
 end

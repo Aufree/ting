@@ -217,7 +217,7 @@
         animate: false
 
     initReplyUser: ->
-      $('.actions').click '.reply', ->
+      $('.actions .reply').click ->
         value = $('textarea').val()
         name = "@" + $(this).find('.reply').attr 'data-name'
         $('textarea').val(name + " " + value)

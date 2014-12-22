@@ -4,9 +4,9 @@ module ApplicationHelper
       name = username.gsub('@', '')
       user = User.find_by_name(name)
       if user.present?
-        text = link_to(username, user_path(name))
+        link_to(username, user_path(name))
       else
-         text = username
+        username
       end
    end
     sanitize text.gsub(/\n/, '<br/>'), tags: %w{ br a }, attributes: %w{ href }

@@ -1,5 +1,5 @@
 <% if @song.errors.empty? %>
-  Turbolinks.visit('<%= root_path %>')
+  Turbolinks.visit('<%= song_path(@song) %>')
 <% else %>
   $('#song-errors').html("<%= j render 'shared/error_messages', object: @song %>");
   $('#error_explanation').transition('tada');

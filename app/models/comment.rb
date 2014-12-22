@@ -1,6 +1,6 @@
 class Comment < ActiveRecord::Base
   belongs_to :user
-  belongs_to :song, counter_cache: true
+  belongs_to :song, counter_cache: true, touch: true
   has_many :likeships, as: :likeable, foreign_key: "likeable_id", dependent: :destroy
   has_many :notifications, as: 'subject', dependent: :delete_all
   validates :user_id, :song_id, :content, presence: true

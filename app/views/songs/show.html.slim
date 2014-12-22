@@ -1,60 +1,62 @@
 - id = @song.s_id
 - user = @song.user
-.ui.grid
-  .four.wide.column
-  .eight.wide.column
-    .ui.one.column.grid.songs-list id="song-#{@song.id}"
-      .sixteen.wide.column.song-info
-        h3.header.center
-          i.orange.sound.icon
-          = link_to @song.title.html_safe, @song
+- cache @song do
+  .ui.grid
+    .four.wide.column
+    .eight.wide.column
+      .ui.one.column.grid.songs-list id="song-#{@song.id}"
+        .sixteen.wide.column.song-info
+          h3.header.center
+            i.orange.sound.icon
+            = link_to @song.title.html_safe, @song
 
-        .song-container
-          .album-pic
-            .outer-pic.ui.circular.image.dimmer-image
-              .ui.dimmer
-                .content
-                  .center
-                    a.playBtn data-xiami_id="#{@song.s_id}"
-                      i.ui.red.huge.play.icon
-              img src="#{@song.pic}"
+          .song-container
+            .album-pic
+              .outer-pic.ui.circular.image.dimmer-image
+                .ui.dimmer
+                  .content
+                    .center
+                      a.playBtn data-xiami_id="#{@song.s_id}"
+                        i.ui.red.huge.play.icon
+                img src="#{@song.pic}"
 
-          .song-content 
-            = parse_text(@song.content)
-        .song-footer
-          .toolbar
-            span.item id="like-song-#{@song.id}"
-              - @likeable = Likeship.likeable(@song)
-              = likeable_likes_tag @likeable
+            .song-content 
+              = parse_text(@song.content)
+          .song-footer
+            .toolbar
+              span.item id="like-song-#{@song.id}"
+                - @likeable = Likeship.likeable(@song)
+                = likeable_likes_tag @likeable
 
-            - if current_user == user
-              = link_to edit_song_path(@song) do
-                i.green.icon.pencil
-              = link_to song_path(@song), method: :delete, data: { confirm: "确认删除" }
-                i.red.icon.trash
-            = link_to user
-              = image_tag(@song.user.avatar_url(:small), class: "ui avatar image floated right run-popup", data: { content: "#{user.name}", position: "left center" } )
+              - if current_user == user
+                = link_to edit_song_path(@song) do
+                  i.green.icon.pencil
+                = link_to song_path(@song), method: :delete, data: { confirm: "确认删除" }
+                  i.red.icon.trash
+              = link_to user
+                = image_tag(@song.user.avatar_url(:small), class: "ui avatar image floated right run-popup", data: { content: "#{user.name}", position: "left center" } )
 
-    .ui.horizontal.icon.divider
-      i.circular.red.chat.icon
+      .ui.horizontal.icon.divider
+        i.circular.red.chat.icon
 
-    #comments
-      .column
-        .ui.comments
-          - if @comments.any?
-            - @comments.each do |comment|
-              = render 'comments/comment', comment: comment
+      #comments
+        .column
+          .ui.comments
+            - if @comments.any?
+              - cache @comments do
+                - @comments.each do |comment|
+                  = render 'comments/comment', comment: comment
+            - else
+              .center
+                p 暂无评论
+          .ui.horizontal.icon.divider
+            i.circular.green.pencil.icon
+          - if logged_in?
+            = render 'comments/form'
           - else
             .center
-              p 暂无评论
-        .ui.horizontal.icon.divider
-          i.circular.green.pencil.icon
-        - if logged_in?
-          = render 'comments/form'
-        - else
-          .center
-            = link_to :login
-              .ui.animated.fade.blue.button
-                .visible.content 请先登录后再评论
-                .hidden.content 点击登录
-audio id="player" data-xiami_id="-1"
+              = link_to :login
+                .ui.animated.fade.blue.button
+                  .visible.content 请先登录后再评论
+                  .hidden.content 点击登录
+  audio id="player" data-xiami_id="-1"
