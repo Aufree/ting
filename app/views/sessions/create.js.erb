@@ -2,7 +2,12 @@ $('.ui.form').removeClass('loading')
 <% if logged_in? %>
   Turbolinks.visit('<%= root_path %>');
 <% else %>
-  $('#login-errors').addClass('ui error message')
-            .html("邮箱或密码输入不正确");
-  $('#login-errors').transition('tada');
+    $errors = $('#login-errors');
+    $errors.addClass('ui error message');
+  <% if @inactivation %>
+    $errors.html("用户尚未通过验证");
+  <% else %>
+      $errors.html("邮箱或密码输入不正确");
+  <% end %>
+    $errors.transition('tada');
 <% end %>
