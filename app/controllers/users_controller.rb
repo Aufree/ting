@@ -60,7 +60,7 @@ skip_before_action :require_login, :only => [ :index, :new, :show, :create, :act
   end
 
   def user_songs
-    @songs = @user.songs
+    @songs = @user.songs.order("created_at desc")
   end
 
   def favorite_songs

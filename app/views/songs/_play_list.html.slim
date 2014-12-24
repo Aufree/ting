@@ -1,6 +1,11 @@
-- for song in songs
-  .songs-list
-    a data-xiami_id="#{song.s_id}" class="ui playBtn"
-      i.teal.play.icon
-    = link_to song.title.html_safe, song
-    .ui.divider
+- if songs.any?
+  - for song in songs
+    .songs-list
+      a data-xiami_id="#{song.s_id}" class="ui playBtn"
+        i.teal.play.icon
+      = link_to song.title.html_safe, song
+      .ui.divider
+- else
+  .center
+    p 该用户尚未喜欢过任何歌曲
+    p ...>_<...

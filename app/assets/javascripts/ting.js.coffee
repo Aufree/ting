@@ -47,16 +47,20 @@
       $(".run-popup").popup()
       $(".ui.selection.dropdown").dropdown()
       $('.ui.sticky').sticky({offset: 100, bottomOffset: 50, context: '#main'})
+
       $('.modal-toggle').click ->
         $('.song-form').modal('show')
+
       $('.forget-password').click ->
         $('.reset-pwd-form').modal('show')
         return false
+
       $('#song-loading').progress('increment')
       $('.dimmer-image').dimmer({on: 'hover'})
-      $('.menu').find('.item').click ->
+      $('.tabular.menu').find('.item').click ->
         $('.item.active').removeClass('active')
         $(this).addClass('active')
+        $('.status-panel').html('<div class="center gray"><i class="spinner fast-rotating icon"></i>加载中...</div>')
       return
 
     initAvatarPreview: ->
@@ -130,13 +134,10 @@
           $('.rotating').removeClass 'rotating'
           $('.pause').removeClass('pause').addClass 'play'
           next_song = $(self).parents('.songs-list').next('.songs-list')
-          if next_song.length > 0
-            next_song.find('.playBtn').click()
-          else
-            $audio.attr
-              "src": ''
-              "data-xiami_id": -1
-          return
+          $audio.attr
+            "src": ''
+            "data-xiami_id": -1
+          next_song.find('.playBtn').click()
         return
       return
 

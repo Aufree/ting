@@ -1,7 +1,3 @@
-- if @comments.any?
-  - cache @comments do
-    - @comments.each do |comment|
-      = render 'comments/comment', comment: comment
-- else
-  .center
-    p 暂无评论
+- cache @comments do
+  - @comments.each do |comment|
+    = render 'comments/comment', comment: comment

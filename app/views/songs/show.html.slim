@@ -59,7 +59,11 @@
       #comments
         .column
           .ui.comments
-            = render @comments
+            - if @comments.any?
+              = render @comments
+            - else
+              .ui.aligned.center
+                p 暂无评论
           .ui.horizontal.icon.divider
             i.circular.green.pencil.icon
           - if logged_in?

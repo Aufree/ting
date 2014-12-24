@@ -10,6 +10,11 @@ class Song < ActiveRecord::Base
 
   before_validation :set_xiami_info
 
+  scope :hot_songs, -> { joins(:likeships).
+                                       group('songs.id').
+                                       order('count(likeships.id) desc').
+                                       limit(10) }
+
   def set_xiami_info
       get_xiami_info(self)
   end

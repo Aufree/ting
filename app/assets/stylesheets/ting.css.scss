@@ -5,6 +5,9 @@ html.turbolinks-progress-bar::before {
 ::selection {
     background-color: rgba(229, 253, 254, 1);
 }
+.ui.message {
+    box-shadow: none;
+}
 body {
     font-family: arial, sans-serif;
 }
@@ -20,7 +23,6 @@ body {
 }
 .flash {
     margin-right: -14px !important;
-    box-shadow: none !important;
 }
 .center {
     text-align: center;
@@ -32,10 +34,12 @@ body {
     animation: rotating 8s linear infinite;
     -webkit-animation: rotating 8s linear infinite;
 }
-#error_explanation {
-    .ui.message {
-        box-shadow: none;
-    }
+.fast-rotating {
+    animation: rotating 1.5s linear infinite;
+    -webkit-animation: rotating 1.5s linear infinite;
+}
+.gray {
+    color: #ccc;
 }
 @keyframes rotating {
     from {

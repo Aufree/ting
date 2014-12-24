@@ -18,7 +18,12 @@
   def collect
     songs_id = current_user.likeships.where("likeable_type = ?", "Song").collect(&:likeable_id)
     songs = Song.find(songs_id).reverse!
-    @songs = Kaminari.paginate_array(songs).page(params[:page])
+    if songs.empty?
+      @recommend = true
+      @songs = Song.hot_songs.page params[:page]
+    else
+      @songs = Kaminari.paginate_array(songs).page(params[:page])
+    end
   end
   
   def create
