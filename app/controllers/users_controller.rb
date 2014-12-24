@@ -53,7 +53,7 @@ skip_before_action :require_login, :only => [ :index, :new, :show, :create, :act
     if (@user = User.load_from_activation_token(params[:id]))
       @user.activate!
       flash[:success] = "激活成功"
-      redirect_to login_path
+      auto_login(@user)
     else
       not_authenticated
     end

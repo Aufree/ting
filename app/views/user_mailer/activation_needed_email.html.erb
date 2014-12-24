@@ -1,10 +1,12 @@
-<h3>欢迎, <%= @user.name %></h3>
+  <p class="header titleSpacer" align="center" style="word-break: break-word; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-smooth: always; -webkit-font-smoothing: antialiased; color: #2b2b2b; font-size: 27px; font-weight: 300; padding: 24px 0 16px;">
+    欢迎您, <%= @user.name %>     
+  </p>
 
-<hr>
+  <p class="content spacer" align="center" style="word-break: break-word; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-smooth: always; -webkit-font-smoothing: antialiased; color: #666; font-size: 15px; font-weight: 300; line-height: 20px; padding-bottom: 14px;">
+    您已经成功注册,
+    您的用户名是: <%= @user.name %>. <br>
+    请使用<%= link_to "该链接", @url, { style: "color: #08c; text-decoration: none;" } %>完成验证. <br>
+  </p>
+  <p align="center" style="color:#BA8C82;">
 
-<p>你已经成功注册,
-你的用户名是: <%= @user.name %>. <br>
-
-使用<%= link_to "该链接", @url %>完成验证. <br>
-
-</p>
+  </p>

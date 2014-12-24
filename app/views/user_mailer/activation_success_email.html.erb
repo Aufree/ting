@@ -1,9 +1,9 @@
-<h3>恭喜你, <%= @user.name %></h3>
-<br>
+  <p class="header titleSpacer" align="center" style="word-break: break-word; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-smooth: always; -webkit-font-smoothing: antialiased; color: #2b2b2b; font-size: 27px; font-weight: 300; padding: 24px 0 16px;">
+    恭喜您, <%= @user.name %>     
+  </p>
 
-<p>
-你的账户已成功激活,
-你的用户名是: <%= @user.name %>. <br>
-
-<%= link_to "点击", @url %>进入网站. <br>
-</p>
+  <p class="content spacer" align="center" style="word-break: break-word; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-smooth: always; -webkit-font-smoothing: antialiased; color: #666; font-size: 15px; font-weight: 300; line-height: 20px; padding-bottom: 14px;">
+    您的账户已成功激活,
+    您的用户名是: <%= @user.name %>. <br>
+    您现在可以<%= link_to "进入网站", @url, { style: "color: #08c; text-decoration: none;" }  %>, 尽情享受音乐带来的美妙.<br>
+  </p>
