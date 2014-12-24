@@ -2,8 +2,9 @@ $('.ui.form').removeClass('loading')
 <% if logged_in? %>
   Turbolinks.visit('<%= root_path %>');
 <% else %>
-    $errors = $('#login-errors');
-    $errors.addClass('ui error message');
+  $('.login-form').find('.field').addClass('error')
+  $errors = $('#login-errors');
+  $errors.addClass('ui error message');
   <% if @inactivation %>
     $errors.html("用户尚未通过验证");
   <% else %>

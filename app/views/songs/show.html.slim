@@ -59,13 +59,7 @@
       #comments
         .column
           .ui.comments
-            - if @comments.any?
-              - cache @comments do
-                - @comments.each do |comment|
-                  = render 'comments/comment', comment: comment
-            - else
-              .center
-                p 暂无评论
+            = render @comments
           .ui.horizontal.icon.divider
             i.circular.green.pencil.icon
           - if logged_in?

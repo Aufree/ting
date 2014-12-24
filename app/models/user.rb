@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   authenticates_with_sorcery!
   mount_uploader :avatar, AvatarUploader
   has_many :songs, dependent: :delete_all
-  has_many :comments, dependent: :delete_all
+  has_many :comments, dependent: :destroy
   has_many :likeships, foreign_key: "user_id", dependent: :destroy
   has_many :notifications, dependent: :delete_all
   VALID_EMAIL_REGEX =/\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i

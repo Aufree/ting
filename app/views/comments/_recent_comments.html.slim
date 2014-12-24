@@ -1,0 +1,16 @@
+- if comments.any?
+  - cache comments do
+    .ui.comments
+      - comments.each do |comment|
+        - cache comment do
+          - user= comment.user
+          .comment id="comment-#{comment.id}"
+            = link_to user, class: "avatar commenter" do 
+              = image_tag(user.avatar_url(:small))
+            .content
+              = link_to user.name, user, class: "author"
+              .text.comment-content = parse_text(comment.content)
+        .ui.divider
+- else
+  .center
+    p 暂无评论

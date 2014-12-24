@@ -1,17 +1,43 @@
 .user-avatar {
     cursor: pointer;
-    width: 100px;
-    height: 100px;
     margin: 0 auto;
-    border: 3px solid rgba(187, 187, 187, 0.8);
 }
 .mini-avatar {
   width: 20px !important;
   height: 20px !important;
 }
+.login-form {
+    padding-top: 5px;
+    padding-bottom: 10px;
+}
+.thumb {
+    width: 100px;
+    height: 100px;
+}
+.lg {
+  width: 200px;
+  height: 200px;
+}
 .session-buttons {
   width: 100%;
   .button {
     width: 49%;
+  }
+}
+#user-show {
+  .info-column {
+    background-color: #fff;
+    @include border-radius(5px);
+    padding: 25px;
+    color: #666;
+    border-right: 3px solid #F7F6F2;
+    .user-status {
+      padding-left: 20px;
+    }  
+  }
+  .content-column {
+    background-color: #fff;
+    @include border-radius(5px);
+    padding: 30px;
   }
 }

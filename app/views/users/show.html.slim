@@ -1,7 +1,26 @@
 .ui.grid
-  .six.wide.column
-  .four.wide.column
-    .ui.center.aligned.field.basic.segment
-      = image_tag(@user.avatar_url(:thumb), class: "ui image circular thumb user-avatar")
-      .user-name = @user.name
-      .user-bio = @user.bio
+  .three.wide.column
+  .ten.wide.column
+    #user-show.ui.grid
+      .five.wide.column.info-column
+        = image_tag(@user.avatar_url(:large), class: "ui image circular lg user-avatar run-popup")
+        .ui.aligned.center
+          h3 = @user.name
+        .ui.aligned.center.bio
+          = @user.bio
+        .ui.divider
+        .user-status
+          .user-created-at
+            | 加入时间: #{time_ago_in_words(@user.created_at)}前
+          .user-songs-count
+            | 发表歌曲: #{@user.songs.count} 首
+          .user-comments-count
+            | 发表评论: #{@user.comments.count} 条
+      .eleven.wide.column.content-column
+        .ui.tabular.menu
+          = link_to "歌曲", user_songs_url+"?id=#{@user.name}", remote: true, class: "active item"
+          = link_to "喜欢", favorite_url+"?id=#{@user.name}", remote: true, class: "item"
+          = link_to "评论", recent_comments_url+"?id=#{@user.name}", remote: true, class: "item"
+        .user-songs
+          = render 'songs/play_list', songs: @songs
+audio id="player" data-xiami_id="-1"

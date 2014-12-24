@@ -1,12 +1,6 @@
 Rails.application.routes.draw do
-  get 'password_resets/create'
-
-  get 'password_resets/edit'
-
-  get 'password_resets/update'
 
 root 'songs#index'
-
 resources :sessions, only: [ :new, :create, :destroy ]
 resources :users, only: [ :new, :create, :update, :edit, :show ] do
   member do
@@ -14,7 +8,7 @@ resources :users, only: [ :new, :create, :update, :edit, :show ] do
   end
 end
 resources :songs do
-  resources :comments
+  resources :comments, only: [ :create, :destroy ]
 end
 resource :likeship, only: [ :create, :destroy ]
 resources :pages
@@ -28,6 +22,9 @@ resources :password_resets, only: [ :new, :create, :edit, :update]
 get 'login' => 'sessions#new', :as => :login
 delete 'logout' => 'sessions#destroy', :as => :logout
 get 'collect' => 'songs#collect', :as => :collect
+get 'user_songs' => 'users#user_songs', :as => :user_songs
+get 'favorite_songs' => 'users#favorite_songs', :as => :favorite
+get 'recent_comments' => 'users#recent_comments', :as => :recent_comments
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -2,10 +2,12 @@ class UsersController < ApplicationController
 before_action :require_login
 before_action :find_correct_user, only: [ :edit, :update ]
 before_action :not_login_user, only: [ :new, :create ]
-skip_before_action :require_login, :only => [:index, :new, :create, :activate]
+before_action :find_user, only: [ :user_songs, :favorite_songs, :recent_comments ]
+skip_before_action :require_login, :only => [ :index, :new, :show, :create, :activate ]
 
   def show
     @user = User.find_by_name(params[:id])
+    @songs = @user.songs.order("created_at desc")
   end
 
   def new
@@ -57,6 +59,26 @@ skip_before_action :require_login, :only => [:index, :new, :create, :activate]
     end
   end
 
+  def user_songs
+    @songs = @user.songs
+  end
+
+  def favorite_songs
+    songs_id = @user.likeships.where("likeable_type = ?", "Song").collect(&:likeable_id)
+    @songs = Song.find(songs_id).reverse!
+
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def recent_comments
+    @comments = @user.comments.order("created_at desc")
+    respond_to do |format|
+      format.js
+    end
+  end
+
   private
 
   def find_correct_user
@@ -65,6 +87,10 @@ skip_before_action :require_login, :only => [:index, :new, :create, :activate]
       flash[:warning] = "无权访问"
       redirect_to root_path
     end
+  end
+
+  def find_user
+    @user = User.find_by_name(params[:id])
   end
 
   def user_params

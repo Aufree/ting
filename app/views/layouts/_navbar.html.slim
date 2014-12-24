@@ -2,7 +2,7 @@
   .ui.large.vertical.labeld.menu
     .ui.header.item.center.teal.label 
       = link_to current_user do
-        = image_tag current_user.avatar_url(:thumb), class: "ui circular image user-avatar run-popup", data: { content: "查看个人信息", variation: "large"}
+        = image_tag current_user.avatar_url(:thumb), class: "ui circular image thumb user-avatar run-popup", data: { content: "查看个人信息", variation: "large"}
     = link_to notifications_path, class: "item" do
       - count = current_user.notifications.unread.count
       - if count > 0

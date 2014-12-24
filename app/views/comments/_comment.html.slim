@@ -1,7 +1,7 @@
 - cache comment do
   - user= comment.user
   .comment id="comment-#{comment.id}"
-    = link_to user,class: "avatar commenter" do 
+    = link_to user, class: "avatar commenter" do 
       = image_tag(user.avatar_url(:small))
     .content
       = link_to user.name, user, class: "author"

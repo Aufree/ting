@@ -54,6 +54,9 @@
         return false
       $('#song-loading').progress('increment')
       $('.dimmer-image').dimmer({on: 'hover'})
+      $('.menu').find('.item').click ->
+        $('.item.active').removeClass('active')
+        $(this).addClass('active')
       return
 
     initAvatarPreview: ->

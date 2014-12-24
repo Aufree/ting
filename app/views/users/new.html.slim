@@ -1,8 +1,6 @@
 .ui.grid
   .six.wide.column
   .four.wide.column
-    .center
-      h2.header 注册
     #signup-errors
       = render 'shared/error_messages', object: @user
     = form_for @user, remote: true do |f|
