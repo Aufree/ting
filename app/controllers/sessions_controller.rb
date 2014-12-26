@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
   def new
     @user = User.new
+    render layout: "users_form"
   end
 
   def create

@@ -1,24 +1,22 @@
-.ui.grid
-  .six.wide.column
-  .four.wide.column
-    #signup-errors
-      = render 'shared/error_messages', object: @user
-    = form_for @user, remote: true do |f|
-      .ui.form
-        .field
-          .ui.icon.input
-             = f.text_field :name, placeholder: "用户名"
-             i.user.icon
-        .field
-          .ui.icon.input
-             = f.text_field :email, placeholder: "邮箱"
-             i.mail.icon
-        .field
-          .ui.icon.input
-             = f.password_field :password, placeholder: "密码"
-             i.lock.icon
-        .field
-          .ui.icon.input
-             = f.password_field :password_confirmation, placeholder: "确认密码"
-             i.lock.icon
-        = f.submit "注册", class: "ui fluid green button", data: { disable_with: "提交中" }
+.signup-form
+  #signup-errors
+    = render 'shared/error_messages', object: @user
+  = form_for @user, remote: true do |f|
+    .ui.form
+      .field
+        .ui.left.icon.large.input
+           = f.text_field :name, placeholder: "用户名"
+           i.user.icon
+      .field
+        .ui.left.icon.large.input
+           = f.text_field :email, placeholder: "邮箱"
+           i.mail.icon
+      .field
+        .ui.left.icon.large.input
+           = f.password_field :password, placeholder: "密码"
+           i.lock.icon
+      .field
+        .ui.left.icon.large.input
+           = f.password_field :password_confirmation, placeholder: "确认密码"
+           i.lock.icon
+      = f.submit "注册", class: "ui fluid green large button", data: { disable_with: "提交中" }

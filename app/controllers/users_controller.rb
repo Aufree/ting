@@ -1,9 +1,8 @@
 class UsersController < ApplicationController
-before_action :require_login
+before_action :require_login, only: [ :edit, :update ]
 before_action :find_correct_user, only: [ :edit, :update ]
 before_action :not_login_user, only: [ :new, :create ]
 before_action :find_user, only: [ :user_songs, :favorite_songs, :recent_comments ]
-skip_before_action :require_login, :only => [ :index, :new, :show, :create, :activate ]
 
   def show
     @user = User.find_by_name(params[:id])
@@ -11,7 +10,9 @@ skip_before_action :require_login, :only => [ :index, :new, :show, :create, :act
   end
 
   def new
-  	@user = User.new
+    @user = User.new
+    @signup = true
+    render layout: "users_form"
   end
 
   def create

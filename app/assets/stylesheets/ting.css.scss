@@ -6,7 +6,7 @@ html.turbolinks-progress-bar::before {
     background-color: rgba(229, 253, 254, 1);
 }
 .ui.message {
-    box-shadow: none;
+    box-shadow: none !important;
 }
 body {
     font-family: arial, sans-serif;
@@ -24,6 +24,19 @@ body {
 .flash {
     margin-right: -14px !important;
     box-shadow: none !important;
+}
+#hot-songs {
+    background-color: #F07575;
+    a {
+        color: #fff;
+    }
+    .songs-list {
+        position: relative;
+        z-index: 1000;
+    }
+}
+#particles {
+    position: absolute;
 }
 .center {
     text-align: center;

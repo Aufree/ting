@@ -20,6 +20,7 @@ resources :notifications, only: [ :index, :destroy ] do
 end
 resources :password_resets, only: [ :new, :create, :edit, :update]
 get 'login' => 'sessions#new', :as => :login
+get 'signup' => 'users#new', :as => :signup
 delete 'logout' => 'sessions#destroy', :as => :logout
 get 'collect' => 'songs#collect', :as => :collect
 get 'user_songs' => 'users#user_songs', :as => :user_songs

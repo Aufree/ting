@@ -2,9 +2,9 @@
   - for song in songs
     .songs-list
       a data-xiami_id="#{song.s_id}" class="ui playBtn"
-        i.teal.play.icon
+        i.play.icon
       = link_to song.title.html_safe, song
-      .ui.divider
+      .ui.hidden.divider
 - else
   .center
     p 该用户尚未喜欢过任何歌曲

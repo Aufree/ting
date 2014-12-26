@@ -4,6 +4,7 @@
 
   def index
     @songs = Song.includes(:user).all.order("created_at desc").page params[:page]
+    @hot_songs = Song.hot_songs
   end
 
   def new

@@ -28,6 +28,7 @@
       self.initCustomDataConfirm()
       self.initInfiniteScrolling()
       self.initReplyUser()
+      self.initRainyDay()
       return
 
     sitePageUpdate: ->
@@ -95,7 +96,7 @@
 
     initPlayer: ->
       $('.playBtn').unbind('click')
-      $('.playBtn').on "click", ->
+      $('.playBtn').click ->
         self = $(this)
         play_icon = self.find('i.play')
         pause_icon = self.find('i.pause')
@@ -224,11 +225,25 @@
         animate: false
 
     initReplyUser: ->
-      $('.actions').click '.reply', ->
+      $('.reply-user').click '.reply', ->
         value = $('textarea').val()
         name = "@" + $(this).find('.reply').attr 'data-name'
-        $('textarea').val(name + " " + value)
+        $('textarea').val(value + " " + name + " ")
         $('textarea').focus()
+
+    initRainyDay: ->
+      image = document.getElementById("rainyday")
+      if typeof(image) != 'undefined' and image != null
+        image.onload = ->
+          engine = new RainyDay(image: this)
+          engine.rain [[
+            3
+            2
+            2
+          ]], 100
+          return
+        image.crossOrigin = "anonymous"
+        image.src = "/assets/night.jpg"
 
   window.Boker = Boker
   return

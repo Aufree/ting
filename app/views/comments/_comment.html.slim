@@ -14,5 +14,6 @@
           = link_to [@song, comment], method: :delete, remote: true, data: { confirm: "确认删除" } do
             i.pink.trash.icon
         - else
-          a.reply data-name="#{user.name}"
-            i.reply.orange.icon
+          span.reply-user
+            a.reply data-name="#{user.name}"
+              i.reply.orange.icon

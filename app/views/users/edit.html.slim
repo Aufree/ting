@@ -6,7 +6,7 @@
         = render 'shared/error_messages', object: @user
       = form_for @user, remote: true do |f|
         .ui.center.aligned.field.basic.segment
-          = image_tag(current_user.avatar_url(:thumb), class: "ui image circular thumb user-avatar user-avatar-upload run-popup", data: { content: "点击上传头像" })
+          = image_tag(current_user.avatar_url(:large), class: "ui image circular thumb user-avatar user-avatar-upload run-popup", data: { content: "点击上传头像" })
           = f.file_field :avatar, class: "upload-avatar"
         .field
           = f.text_field :email, placeholder: "邮箱", disabled: "disabled"

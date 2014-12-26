@@ -2,25 +2,29 @@
   .three.wide.column
   .ten.wide.column
     #user-show.ui.grid
-      .five.wide.column.info-column
-        = image_tag(@user.avatar_url(:large), class: "ui image circular lg user-avatar run-popup")
-        .center
-          h3 = @user.name
-        .center.bio
-          = @user.bio
-        .ui.divider
-        .user-status
-          .user-created-at
-            | 加入时间: #{time_ago_in_words(@user.created_at)}前
-          .user-songs-count
-            | 发表歌曲: #{@user.songs.count} 首
-          .user-comments-count
-            | 发表评论: #{@user.comments.count} 条
-      .eleven.wide.column.content-column
-        .ui.tabular.menu
-          = link_to "歌曲", user_songs_url+"?id=#{@user.name}", remote: true, class: "active item"
-          = link_to "喜欢", favorite_url+"?id=#{@user.name}", remote: true, class: "item"
-          = link_to "评论", recent_comments_url+"?id=#{@user.name}", remote: true, class: "item"
-        .status-panel
-          = render 'songs/play_list', songs: @songs
+      .one.wide.column
+      .fourteen.wide.column
+        .ui.grid
+          .one.wide.column
+          .five.wide.column.info-column
+            = image_tag(@user.avatar_url(:large), class: "ui image circular lg user-avatar run-popup")
+            .center
+              h3 = @user.name
+            .center.bio
+              = @user.bio
+            .ui.divider
+            .user-status
+              .user-created-at
+                | 加入时间: #{time_ago_in_words(@user.created_at)}前
+              .user-songs-count
+                | 发表歌曲: #{@user.songs.count} 首
+              .user-comments-count
+                | 发表评论: #{@user.comments.count} 条
+          .nine.wide.column.content-column
+              .ui.tabular.menu
+                = link_to "歌曲", user_songs_url+"?id=#{@user.name}", remote: true, class: "active item"
+                = link_to "喜欢", favorite_url+"?id=#{@user.name}", remote: true, class: "item"
+                = link_to "评论", recent_comments_url+"?id=#{@user.name}", remote: true, class: "item"
+              .status-panel
+                = render 'songs/play_list', songs: @songs
 audio id="player" data-xiami_id="-1"

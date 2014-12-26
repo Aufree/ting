@@ -1,3 +1,41 @@
+#rainyday {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+}
+.wallpaper {
+  position: absolute;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+    .signup-form {
+      margin: 0 auto;
+      padding-top: 180px;
+      width: 25%;
+      .ui.form {
+        background-color: rgba(225, 225, 225, 0.35);
+        padding: 25px;
+        @include border-radius(5px);
+        a {
+          color: rgba(0, 0, 0, 0.8);
+        }
+      }
+    }
+    .login-form {
+      @extend .signup-form;
+      padding-top: 200px;
+    }
+}
+.pin-button {
+  position: relative;
+  top: 30px;
+  z-index: 3000;
+  right: 50px;
+  .blue {
+    margin-right: 10px;
+  }
+}
 .user-avatar {
     cursor: pointer;
     margin: 0 auto;
@@ -6,10 +44,6 @@
   width: 20px !important;
   height: 20px !important;
 }
-.login-form {
-    padding-top: 5px;
-    padding-bottom: 10px;
-}
 .thumb {
     width: 100px;
     height: 100px;
@@ -17,6 +51,12 @@
 .lg {
   width: 200px;
   height: 200px;
+}
+#full-button {
+  padding: 0;
+  .button {
+    width: 49%;
+  }
 }
 .session-buttons {
   width: 100%;

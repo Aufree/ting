@@ -1,4 +1,14 @@
-.ui.grid
-  .six.wide.column
-  .four.wide.column
-    = render 'form'
+.login-form
+  = form_for :session, url: sessions_path, remote: true do |f|
+    .ui.form.basic.segment
+      #login-errors
+      .field
+        = f.text_field :email, placeholder: "邮箱"
+      .field
+        = f.password_field :password, placeholder: "密码"
+      .field
+        .ui.toggle.checkbox
+          = f.check_box :remember
+          = f.label :remember, "记住我"
+        = link_to '忘记密码?', new_password_reset_path, class: "forget-password pull-right"
+      = f.submit "登录", class: "ui green fluid button"
