@@ -4,7 +4,7 @@ $(function(){
         function(){
             $('#comment-<%= @comment.id %>').remove();
             if(!$('.comments .commenter').length>0){
-                $('.comments').html('<div class="center">暂无评论</div>')
+                $('.comments').html('<div class="ui center aligned basic segment">暂无评论</div>')
             }
         }
     );

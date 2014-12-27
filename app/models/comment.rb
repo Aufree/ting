@@ -48,4 +48,5 @@ class Comment < ActiveRecord::Base
       send_notification_to_musician('')
     end
   end
+
 end

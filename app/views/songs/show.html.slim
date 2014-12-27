@@ -61,10 +61,11 @@
           .ui.comments
             - if @comments.any?
               = render @comments
-              = paginate @comments
             - else
-              .ui.aligned.center
-                p 暂无评论
+              .ui.center.aligned.basic.segment 暂无评论
+
+          = paginate @comments
+
           .ui.horizontal.icon.divider
             i.circular.green.pencil.icon
           - if logged_in?

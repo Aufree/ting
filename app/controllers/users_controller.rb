@@ -5,7 +5,12 @@ before_action :not_login_user, only: [ :new, :create ]
 before_action :find_user, only: [ :show, :user_songs, :favorite_songs, :recent_comments ]
 
   def show
-    @songs = @user.songs.order("created_at desc")
+    if @user
+      @songs = @user.songs.order("created_at desc")
+    else
+      redirect_to root_path
+      flash[:error] = "该用户不存在"
+    end
   end
 
   def new
