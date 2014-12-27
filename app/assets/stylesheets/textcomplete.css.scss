@@ -1,11 +1,10 @@
 /* Textcomplete */
 .dropdown-menu {
-    border: 1px solid #ddd;
     background-color: white;
+    @include box-shadow(#CCCCCC 0px 2px 10px);
 }
 
 .dropdown-menu li {
-    border-top: 1px solid #ddd;
     min-width: 10rem;
     padding: 5px 10px;
 }
