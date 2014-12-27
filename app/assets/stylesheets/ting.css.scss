@@ -51,9 +51,6 @@ body {
     animation: rotating 1.5s linear infinite;
     -webkit-animation: rotating 1.5s linear infinite;
 }
-.gray {
-    color: #ccc;
-}
 @keyframes rotating {
     from {
         transform: rotate(0deg);

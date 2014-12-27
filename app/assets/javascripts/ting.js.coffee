@@ -61,7 +61,7 @@
       $('.secondary.menu').find('.item').click ->
         $('.item.active').removeClass('active')
         $(this).addClass('active')
-        $('.status-panel').html('<div class="center gray"><i class="spinner fast-rotating icon"></i>加载中...</div>')
+        $('.status-panel').html('<div class="ui center aligned basic segment"><i class="spinner fast-rotating icon"></i>加载中...</div>')
       return
 
     initAvatarPreview: ->
@@ -168,18 +168,18 @@
             title = data.title.replace(/&#39;/,"'")
             $('input#song_title').val(title)
             $('input#song_artist').val(data.singer)
-            $('#song-errors').addClass("animated zoomIn").html '<div id="error_explanation"><div class="ui success message center">检测通过, 填写分享内容后即可发布</div></div>'
+            $('#song-errors').addClass("animated zoomIn").html '<div id="error_explanation"><div class="ui success message center aligned segment">检测通过, 填写分享内容后即可发布</div></div>'
             return
           ).fail( -> 
             $('input#song_title').val("")
             $('input#song_artist').val('')
-            $('#song-errors').addClass("animated bounceIn").html '<div id="error_explanation"><div class="ui error message center">未获取到该歌曲的相关信息</div></div>'
+            $('#song-errors').addClass("animated bounceIn").html '<div id="error_explanation"><div class="ui error message center aligned segment">未获取到该歌曲的相关信息</div></div>'
             return
           ).always ->
             $btn.removeClass 'loading'
             return
         else
-          $('#song-errors').addClass("animated flash").html('<div id="error_explanation"><div class="ui error message center">请先填写虾米 ID</div></div>')
+          $('#song-errors').addClass("animated flash").html('<div id="error_explanation"><div class="ui error message center aligned segment">请先填写虾米 ID</div></div>')
           $(this).removeClass 'loading'
         return
       return
@@ -216,7 +216,7 @@
       $('#pagination').css('display', 'none')
       $("#songs").infinitescroll
         loading:
-          finishedMsg: '<div class="ui green message center">全部加载完毕</div>'
+          finishedMsg: '<div class="ui green message">全部加载完毕</div>'
           img: '/assets/loading.gif'
           msgText: ""
         navSelector: "nav.pagination"

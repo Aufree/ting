@@ -3,7 +3,6 @@ class NotificationsController < ApplicationController
 
   def index
     @notifications = current_user.notifications
-                                                   .includes(:subject)
                                                    .order(id: :desc)
                                                    .page(params[:page])
                                                    .per(25)
