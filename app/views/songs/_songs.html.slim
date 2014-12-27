@@ -16,7 +16,7 @@
       #songs
         - for song in @songs
           = render 'song', song: song
-        #pagination.center
+        #pagination
           = paginate @songs
           
     .right.ui.rail

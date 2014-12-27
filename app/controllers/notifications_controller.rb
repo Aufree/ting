@@ -5,6 +5,8 @@ class NotificationsController < ApplicationController
     @notifications = current_user.notifications
                                                    .includes(:subject)
                                                    .order(id: :desc)
+                                                   .page(params[:page])
+                                                   .per(25)
 
    @notifications.unread.update_all(read: true, updated_at: Time.now.utc)
   end

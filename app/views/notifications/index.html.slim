@@ -6,3 +6,4 @@
         h3.notifications-header 通知
       = link_to "清空通知", clear_notifications_path, remote: true, method: :delete, data: { confirm: "确认清空", disable_with: "清空中" }, class: "ui red button pull-right"
       = render 'notifications'
+      = paginate @notifications

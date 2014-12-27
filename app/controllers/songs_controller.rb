@@ -13,7 +13,7 @@
 
   def show
     @song = Song.includes(:comments).find(params[:id])
-    @comments = @song.comments.includes(:user, :likeships)
+    @comments = @song.comments.includes(:user, :likeships).page(params[:page]).per(25)
   end
 
   def collect
