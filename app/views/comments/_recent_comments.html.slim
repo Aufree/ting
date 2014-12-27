@@ -3,11 +3,10 @@
     .ui.comments
       - comments.each do |comment|
         - cache comment do
-          - user = comment.user
           - song = comment.song
           .comment id="comment-#{comment.id}"
-            = link_to user, class: "avatar commenter" do 
-              = image_tag(user.avatar_url(:small))
+            = link_to @user, class: "avatar commenter" do
+              = image_tag(@user.avatar_url(:small))
             .content
               = link_to song.title, song, class: "author"
               .text.comment-content = parse_text(comment.content)

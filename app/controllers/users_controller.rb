@@ -2,10 +2,9 @@ class UsersController < ApplicationController
 before_action :require_login, only: [ :edit, :update ]
 before_action :find_correct_user, only: [ :edit, :update ]
 before_action :not_login_user, only: [ :new, :create ]
-before_action :find_user, only: [ :user_songs, :favorite_songs, :recent_comments ]
+before_action :find_user, only: [ :show, :user_songs, :favorite_songs, :recent_comments ]
 
   def show
-    @user = User.find_by_name(params[:id])
     @songs = @user.songs.order("created_at desc")
   end
 
@@ -74,7 +73,7 @@ before_action :find_user, only: [ :user_songs, :favorite_songs, :recent_comments
   end
 
   def recent_comments
-    @comments = @user.comments.order("created_at desc")
+    @comments = @user.comments.includes(:song).order("created_at desc")
     respond_to do |format|
       format.js
     end
