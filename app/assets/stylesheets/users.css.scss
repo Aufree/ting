@@ -66,22 +66,22 @@
 }
 #user-show {
   .info-column {
-    background-color: #fff;
     @include border-radius(5px);
     padding: 25px;
     color: #666;
-    border-right: 3px solid #F7F6F2;
     .user-status {
-      padding-left: 20px;
     }  
   }
   .content-column {
-    background-color: #fff;
     @include border-radius(5px);
     padding: 30px;
     margin-bottom: 50px;
     .status-panel {
-      min-height: 500px;
+      min-height: 100%;
+      padding-left: 5px;
+      a {
+        color: #fff;
+      }
     }
   }
 }

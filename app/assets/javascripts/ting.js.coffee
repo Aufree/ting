@@ -58,7 +58,7 @@
 
       $('#song-loading').progress('increment')
       $('.dimmer-image').dimmer({on: 'hover'})
-      $('.tabular.menu').find('.item').click ->
+      $('.secondary.menu').find('.item').click ->
         $('.item.active').removeClass('active')
         $(this).addClass('active')
         $('.status-panel').html('<div class="center gray"><i class="spinner fast-rotating icon"></i>加载中...</div>')

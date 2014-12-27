@@ -25,21 +25,20 @@ body {
     margin-right: -14px !important;
     box-shadow: none !important;
 }
-#hot-songs {
-    background-color: #F07575;
-    a {
-        color: #fff;
-    }
-    .songs-list {
-        position: relative;
-        z-index: 1000;
-    }
+#canvas-bg {
+    background: #F07575;
+    position: fixed;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
 }
 #particles {
-    position: absolute;
+    position: fixed;
 }
-.center {
-    text-align: center;
+#site-status {
+    h3 {
+        margin-top: 0;
+    }
 }
 .ui.form {
     margin-top: 10px;

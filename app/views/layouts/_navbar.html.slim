@@ -1,4 +1,17 @@
 - if logged_in?
   = render 'users/user_panel'
 - else
- = render 'hot_songs', hot_songs: @hot_songs
+  .ui.grid.form.basic.segment
+    #full-button.ui.buttons.sixteen.wide.column
+      = link_to "注册", :signup, class: "ui blue inverted button"
+      .or
+      = link_to "登录", :login, class: "ui purple inverted button"
+  .ui.teal.inverted.center.aligned.segment
+    #site-status
+      h3.center.aligned Ting
+      .ui.divider
+      .site-params
+        p 注册会员: #{User.count} 位
+        p 分享歌曲: #{Song.count} 首
+        p 评论总数: #{Comment.count} 条
+        p 创建时间: #{time_ago_in_words(User.first.created_at)} 

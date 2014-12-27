@@ -19,13 +19,13 @@ resources :notifications, only: [ :index, :destroy ] do
   end
 end
 resources :password_resets, only: [ :new, :create, :edit, :update]
-get 'login' => 'sessions#new', :as => :login
-get 'signup' => 'users#new', :as => :signup
-delete 'logout' => 'sessions#destroy', :as => :logout
-get 'collect' => 'songs#collect', :as => :collect
-get 'user_songs' => 'users#user_songs', :as => :user_songs
-get 'favorite_songs' => 'users#favorite_songs', :as => :favorite
-get 'recent_comments' => 'users#recent_comments', :as => :recent_comments
+get 'login', to: 'sessions#new', as: :login
+get 'signup', to: 'users#new', as: :signup
+delete 'logout', to: 'sessions#destroy', as: :logout
+get 'collect', to: 'songs#collect', as: :collect
+get 'user_songs', to: 'users#user_songs', as: :user_songs
+get 'favorite_songs', to: 'users#favorite_songs', as: :favorite
+get 'recent_comments', to: 'users#recent_comments', as: :recent_comments
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

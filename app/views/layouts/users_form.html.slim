@@ -8,11 +8,11 @@ html
   body
 
     .pin-button
+      = link_to "首页", songs_path, class: "ui blue inverted pull-right button"
       - if @signup
         = link_to "登录", :login, class: "ui green inverted pull-right button"
       - else
         = link_to "注册", :signup, class: "ui green inverted pull-right button"
-      = link_to "首页", songs_path, class: "ui blue inverted pull-right button"
     img#rainyday
     .wallpaper
       = yield

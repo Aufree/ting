@@ -6,8 +6,8 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   body
-    .ui.fixed.green.inverted.menu.center
-      = link_to root_path, class: "item" do 
+    .ui.fixed.green.inverted.menu.center.aligned.segment
+      = link_to root_path, id: "logo", class: "item"
         i.music.icon
     .container.animated.fadeIn
       = render 'shared/flash'
