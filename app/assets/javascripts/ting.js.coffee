@@ -29,6 +29,7 @@
       self.initInfiniteScrolling()
       self.initReplyUser()
       self.initRainyDay()
+      self.initAutocompleteAtUser()
       return
 
     sitePageUpdate: ->
@@ -44,6 +45,7 @@
       $('.ui.sticky').sticky('refresh');
       return
 
+    # Run semantic ui
     initSemanticUiTools: ->
       $(".run-popup").popup()
       $(".ui.selection.dropdown").dropdown()
@@ -64,6 +66,7 @@
         $('.status-panel').html('<div class="ui center aligned basic segment"><i class="spinner fast-rotating icon"></i>加载中...</div>')
       return
 
+    # Avatar preview
     initAvatarPreview: ->
       $(document).ready ->
         AvatarPreview = (avatar) ->
@@ -81,6 +84,7 @@
         return
       return
 
+    # Upload avatar
     initUploadAvatar: ->
       $("input#user_avatar").css "display", "none"
       $(".user-avatar-upload").click ->
@@ -88,12 +92,14 @@
         return
       return
 
+    # Auto close message
     initCloseMessage: ->
       $(".message .close").on "click", ->
         $(this).closest(".message").fadeOut()
         return
       return
 
+    # Player
     initPlayer: ->
       $('.playBtn').unbind('click')
       $('.playBtn').click ->
@@ -142,6 +148,7 @@
         return
       return
 
+    # Polling for change of notifications count
     initGetNotificationsCount: ->
       interval = null
       clearTimeout(interval)
@@ -156,6 +163,7 @@
           ),30000
       return
 
+    # Auto check whether the xiami id is exists
     initCheckXiamiInfo: ->
       $('input#song_s_id').blur ->
         $('#song-errors').removeClass().html ""
@@ -184,10 +192,12 @@
         return
       return
 
+    # Add the loading effects to the form
     initLoadingForm: ->
       $(':submit').click ->
         $('.ui.form').addClass "loading"
 
+    # Customizing confirmation dialogs in Rails
     initCustomDataConfirm: ->
       $.rails.allowAction = (link) ->
         return true  unless link.attr("data-confirm")
@@ -209,9 +219,11 @@
         $(".confirm-modal .actions .positive").on "click", ->
           $.rails.confirmed link
 
+    # When user click to go back, it should get a better works
     initRemoveLoading: ->
       $('.ui.form').removeClass "loading"
 
+    # Infinite Scrolling
     initInfiniteScrolling: ->
       $('#pagination').css('display', 'none')
       $("#songs").infinitescroll
@@ -224,6 +236,7 @@
         itemSelector: "#songs .songs-list"
         animate: false
 
+    # Click to reply user
     initReplyUser: ->
       $('.reply-user').click '.reply', ->
         value = $('textarea').val()
@@ -231,6 +244,33 @@
         $('textarea').val(value + " " + name + " ")
         $('textarea').focus()
 
+    # Auto complete at user
+    initAutocompleteAtUser: ->
+      at_users = []
+      user = undefined
+      $users = $(".author")
+      i = 0
+
+      while i < $users.length
+        user = $users.eq(i).html()
+        at_users.push user  if $.inArray(user, at_users) is -1
+        i++
+      $("textarea").textcomplete [
+        mentions: at_users
+        match: /\B@(\w*)$/
+        search: (term, callback) ->
+          callback $.map(@mentions, (mention) ->
+            (if mention.indexOf(term) is 0 then mention else null)
+          )
+          return
+
+        index: 1
+        replace: (mention) ->
+          "@" + mention + " "
+      ],
+        appendTo: "body"
+
+    # Rainy day
     initRainyDay: ->
       image = document.getElementById("rainyday")
       if typeof(image) != 'undefined' and image != null
