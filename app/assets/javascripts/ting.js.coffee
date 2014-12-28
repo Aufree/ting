@@ -63,7 +63,7 @@
       $('.secondary.menu').find('.item').click ->
         $('.item.active').removeClass('active')
         $(this).addClass('active')
-        $('.status-panel').html('<div class="ui center aligned basic segment"><i class="spinner fast-rotating icon"></i>加载中...</div>')
+        $('.status-panel').html('<div class="ui center aligned basic segment"><i class="spinner loading icon"></i>加载中...</div>')
       return
 
     # Avatar preview
@@ -119,12 +119,12 @@
             $('.rotating').addClass 'stop-rotate'
             $('.pause').removeClass('pause').addClass 'play'
         else
-          play_icon.addClass('spinner rotating')
+          play_icon.addClass('spinner loading')
           playMusic = (music) ->
             $.get 'http://inmusic.sinaapp.com/xiami_api/' + music, (data) ->
               if data
                 $('.stop-rotate').removeClass 'stop-rotate'
-                play_icon.removeClass('spinner rotating')
+                play_icon.removeClass('spinner loading')
                 $('.rotating').removeClass 'rotating'
                 self.siblings('.image').addClass 'rotating'
                 self.parents('.image').addClass 'rotating'
@@ -228,7 +228,7 @@
       $('#pagination').css('display', 'none')
       $("#songs").infinitescroll
         loading:
-          finishedMsg: '<div class="ui green message">全部加载完毕</div>'
+          finishedMsg: '<div class="ui green inverted center aligned segment">全部加载完毕</div>'
           img: '/assets/loading.gif'
           msgText: ""
         navSelector: "nav.pagination"

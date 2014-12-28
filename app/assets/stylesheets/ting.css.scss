@@ -48,10 +48,6 @@ body {
     animation: rotating 8s linear infinite;
     -webkit-animation: rotating 8s linear infinite;
 }
-.fast-rotating {
-    animation: rotating 1.5s linear infinite;
-    -webkit-animation: rotating 1.5s linear infinite;
-}
 @keyframes rotating {
     from {
         transform: rotate(0deg);
