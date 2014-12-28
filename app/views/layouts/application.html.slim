@@ -9,8 +9,8 @@ html
     .ui.fixed.green.inverted.menu.center.aligned.segment
       = link_to root_path, id: "logo", class: "item"
         i.music.icon
+    = render 'shared/flash'
     .container.animated.fadeIn
-      = render 'shared/flash'
       - if @user_panel
         .ui.grid
           .two.wide.column

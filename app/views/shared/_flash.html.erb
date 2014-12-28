@@ -1,5 +1,5 @@
 <% flash.each do |key, value| %>
-  <div class="ui <%= key %> message flash center aligned segment">
+  <div id="t-flash" class="ui <%= key %> message flash center aligned segment">
   	  <%= value %>
   </div>
 <% end %>
@@ -9,6 +9,7 @@
       $(".ui.flash").closest(".message").addClass('animated fadeOutUp')
                                                         .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', 
       function(){
+        $('#t-flash').remove();
       });
     },3000)
   })

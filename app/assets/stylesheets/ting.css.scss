@@ -24,7 +24,12 @@ body {
 }
 .flash {
     box-shadow: none !important;
-    margin-right: -14px !important;
+}
+#t-flash {
+    width: 101%;
+    position: absolute;
+    top: -14px;
+    z-index: 9999;
 }
 #canvas-bg {
     background-color: rgba(91, 189, 114, 0.78);
