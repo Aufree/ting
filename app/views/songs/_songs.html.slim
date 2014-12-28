@@ -1,26 +1,19 @@
-.ui.grid
-  .two.wide.column
-  #main.nine.wide.column
-    - if index
-      - if logged_in?
-        .ui.green.button.modal-toggle  分享歌曲
-        .ui.modal.song-form
-          i.close.red.icon
-          .content
-            = render 'songs/form', song: current_user.songs.new
-    
-    - if @recommend
-      .ui.orange.message
-        .center 你还没有喜欢过任何歌曲, 下面歌曲由系统自动推荐
-    - cache [:songs, @songs] do
-      #songs
-        - for song in @songs
-          = render 'song', song: song
-        #pagination
-          = paginate @songs
-          
-    .right.ui.rail
-      .ui.sticky
-        = render 'layouts/navbar'
+- if index
+  - if logged_in?
+    .ui.green.button.modal-toggle 分享歌曲
+    .ui.modal.song-form
+      i.close.red.icon
+      .content
+        = render 'songs/form', song: current_user.songs.new
+
+- if @recommend
+  .ui.orange.message
+    .center 你还没有喜欢过任何歌曲, 下面歌曲由系统自动推荐
+- cache [:songs, @songs] do
+  #songs
+    - for song in @songs
+      = render 'song', song: song
+    #pagination
+      = paginate @songs
         
 audio id="player" data-xiami_id="-1"

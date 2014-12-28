@@ -6,7 +6,10 @@
 <script>
   $(function(){
     setTimeout(function(){
-      $(".ui.flash").closest(".message").addClass('animated zoomOutUp')
+      $(".ui.flash").closest(".message").addClass('animated fadeOutUp')
+                                                        .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', 
+      function(){
+      });
     },3000)
   })
 </script>

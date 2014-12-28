@@ -12,3 +12,8 @@
           = f.label :remember, "记住我"
         = link_to '忘记密码?', new_password_reset_path, class: "forget-password pull-right"
       = f.submit "登录", class: "ui green fluid button"
+
+.small.ui.modal.reset-pwd-form
+  i.close.red.icon
+  .content
+    = render 'password_resets/form'      

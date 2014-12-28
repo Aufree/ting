@@ -10,6 +10,7 @@ html.turbolinks-progress-bar::before {
 }
 body {
     font-family: arial, sans-serif;
+    overflow-x: hidden;
 }
 .container {
     padding-top: 35px;
@@ -22,8 +23,8 @@ body {
     outline: none;
 }
 .flash {
-    margin-right: -14px !important;
     box-shadow: none !important;
+    margin-right: -14px !important;
 }
 #canvas-bg {
     background-color: rgba(91, 189, 114, 0.78);

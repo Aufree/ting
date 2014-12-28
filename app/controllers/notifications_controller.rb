@@ -8,6 +8,7 @@ class NotificationsController < ApplicationController
                                                    .per(25)
 
    @notifications.unread.update_all(read: true, updated_at: Time.now.utc)
+   @user_panel = true
   end
 
   def destroy

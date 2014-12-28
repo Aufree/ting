@@ -11,4 +11,13 @@ html
         i.music.icon
     .container.animated.fadeIn
       = render 'shared/flash'
-      = yield
+      - if @user_panel
+        .ui.grid
+          .two.wide.column
+          #main.nine.wide.column
+            = yield
+            .right.ui.rail
+              .ui.sticky
+                = render 'layouts/navbar'
+      - else
+        = yield

@@ -5,6 +5,7 @@
   def index
     @songs = Song.includes(:user).all.order("created_at desc").page params[:page]
     @hot_songs = Song.hot_songs
+    @user_panel = true
   end
 
   def new
@@ -19,6 +20,7 @@
   def collect
     songs_id = current_user.likeships.where("likeable_type = ?", "Song").collect(&:likeable_id)
     songs = Song.find(songs_id).reverse!
+    @user_panel = true
     if songs.empty?
       @recommend = true
       @songs = Song.hot_songs.page params[:page]
@@ -65,7 +67,7 @@
   def destroy
     @song = current_user.songs.find(params[:id])
     if @song.destroy
-      flash.now[:success] = "删除成功"
+      flash[:success] = "删除成功"
       respond_to do |format|
         format.html { redirect_to root_path }
         format.js

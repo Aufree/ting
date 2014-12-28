@@ -1,11 +1,16 @@
 #main {
     min-height: 500px;
+    .modal-toggle {
+        width: 35px;
+        line-height: 20px;
+        padding: 10px;
+        position: fixed;
+        left: 130px;
+        top: 100px;
+    }
 }
 .songs-list {
     width: 100%;
-}
-#songs {
-    margin-top: 20px;
 }
 .song-container {
     .album-pic {
