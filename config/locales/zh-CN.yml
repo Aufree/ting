@@ -94,6 +94,25 @@ zh-CN:
     save: 保存
     are_you_sure: 确认删除?
     reset_password: 重置密码
+  mailer:
+    subject:
+      welcome: 欢迎来到 Ting
+      reset_password: 重置密码
+      done: 你的账号已经完成激活
+    activation:
+      welcome: 欢迎您
+      successfully_registered: 您已经成功注册
+      your_username: 您的用户名是
+      please_follow: 请使用
+      this_link: 该链接
+      complete: 完成验证
+      congratz: 恭喜您
+      you_can: 你现在可以
+      access: 进入网站
+      enjoy: 尽情享受音乐带来的美妙
+    reset_password:
+      header: "您好, 您正在请求重置密码"
+      body: "重置密码请使用"
   shared:
     error_messages:
      the_form_contains: 表单包含

@@ -1,6 +1,6 @@
-恭喜您, <%= @user.name %>
+<%= t('mailer.activation.congratz') %>, <%= @user.name %>
 ===============================================
 
-您的账户已成功激活,
-您的用户名是: <%= @user.name %>.
-您现在可以点击<%= @url %>进入网站, 尽情享受音乐带来的美妙.
+<%= t('mailer.subject.done') %>,
+<%= t('mailer.activation.your_username') %>: <%= @user.name %>.
+<%= t('mailer.activation.you_can') %><%= t('mailer.activation.access') %>:<%= @url %>, <%= t('mailer.activation.enjoy') %>!

@@ -1,7 +1,7 @@
-欢迎您, <%= @user.name %>
+<%= t('mailer.activation.welcome') %>, <%= @user.name %>
 ===============================================
 
-您已经成功注册,
-您的用户名是: <%= @user.name %>.
+<%= t('mailer.activation.successfully_registered') %>,
+<%= t('mailer.activation.your_username') %>: <%= @user.name %>.
 
-使用该链接完成验证: <%= @url %>
+<%= t('mailer.activation.please_follow') %><%= t('mailer.activation.this_link') %><%= t('mailer.activation.complete') %>: <%= @url %>

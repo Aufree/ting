@@ -94,6 +94,25 @@ en:
     save: Save
     are_you_sure: Are you sure?
     reset_password: Reset password
+  mailer:
+    subject:
+      welcome: Welcome to the Ting
+      reset_password: Reset Password
+      done: Your account is confirmed
+    activation:
+      welcome: Welcome
+      successfully_registered: You are successfully registered
+      your_username: Your username is
+      please_follow: Please follow
+      this_link: " this link "
+      complete: to complete the confirmation
+      congratz: Congratulations
+      you_can: Now you can
+      access: " access to the site"
+      enjoy: Enjoy it
+    reset_password:
+      header: "Hello, You have requested to reset your password"
+      body: "To choose a new password, just follow"
   shared:
     error_messages:
      the_form_contains: The form contains

@@ -16,4 +16,9 @@ class UserMailerPreview < ActionMailer::Preview
     @user = User.first
     UserMailer.activation_success_email(@user)
   end
+
+  def reset_password_email
+    @user = User.first
+    UserMailer.reset_password_email(@user)
+  end
 end
