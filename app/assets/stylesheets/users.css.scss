@@ -31,8 +31,8 @@
   position: relative;
   top: 30px;
   z-index: 3000;
-  right: 50px;
-  .blue {
+  right: 40px;
+  .button {
     margin-right: 10px;
   }
 }
@@ -70,6 +70,9 @@
     padding: 25px;
     color: #666;
     .user-status {
+      p {
+        line-height: 1.63;
+      }
     }  
   }
   .content-column {

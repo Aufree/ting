@@ -3,16 +3,17 @@
     .ui.form.basic.segment
       #login-errors
       .field
-        = f.text_field :email, placeholder: "邮箱"
+        = f.text_field :email, placeholder: "#{t('activerecord.attributes.user.email')}"
       .field
-        = f.password_field :password, placeholder: "密码"
+        = f.password_field :password, placeholder: "#{t('activerecord.attributes.user.password')}"
       .field
         .ui.toggle.checkbox
           = f.check_box :remember
-          = f.label :remember, "记住我"
-        = link_to '忘记密码?', new_password_reset_path, class: "forget-password pull-right"
-      = f.submit "登录", class: "ui green fluid button"
+          = f.label :remember, "#{t('.remember_me')}"
+        = link_to "#{t('.forget_password')}?", new_password_reset_path, class: "forget-password pull-right"
+      = f.submit "#{t('users.login')}", class: "ui green fluid button"
 
+.errors-info data-error="#{t('.invalid_email_password_combination')}" data-inactivation="#{t('.inactivation')}"
 .small.ui.modal.reset-pwd-form
   i.close.red.icon
   .content

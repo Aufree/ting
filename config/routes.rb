@@ -26,6 +26,7 @@ get 'collect', to: 'songs#collect', as: :collect
 get 'user_songs', to: 'users#user_songs', as: :user_songs
 get 'favorite_songs', to: 'users#favorite_songs', as: :favorite
 get 'recent_comments', to: 'users#recent_comments', as: :recent_comments
+get 'language', to: 'users#language', as: :set_locale
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -5,7 +5,7 @@ class Song < ActiveRecord::Base
   has_many :likeships, as: :likeable, foreign_key: "likeable_id", dependent: :destroy
   validates :user_id, presence: true
   validates :content, presence: true, length: { maximum: 10000 }
-  validates :title, :artist, presence: { message: "未被抓取" }
+  validates :title, :artist, presence: { message: "#{I18n.t('songs.fetch_faild')}" }
   validates :s_id, presence: true, uniqueness: true, numericality: { greater_than: 0 }
 
   before_validation :set_xiami_info

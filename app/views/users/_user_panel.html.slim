@@ -1,23 +1,23 @@
 .ui.large.vertical.labeld.menu
   .ui.header.item.center.teal.label 
     = link_to current_user
-      = image_tag current_user.avatar_url(:large), class: "ui circular image thumb user-avatar run-popup", data: { content: "查看个人信息", variation: "large"}
+      = image_tag current_user.avatar_url(:large), class: "ui circular image thumb user-avatar run-popup", data: { content: "#{t('.check_profile')}", variation: "large"}
   = link_to notifications_path, class: "item"
     - count = current_user.notifications.unread.count
     - if count > 0
       #unread-count.ui.red.label = count
     - else
       #unread-count.ui.label = count
-    | 通知
+    | #{t('notifications.index.notifications')}
   = link_to songs_path, class: "item"
     i.home.green.icon
-    | 主页
+    | #{t('layouts.users_form.home')}
   = link_to :collect, class: "item"
     i.star.yellow.icon
-    | 喜欢
+    | #{t('.likes')}
   = link_to edit_user_path(current_user), class: "item"
     i.settings.blue.icon
-    | 设置
+    | #{t('.settings')}
   = link_to :logout, method: :delete, class: "item"
     i.sign.out.red.icon
-    | 退出
+    | #{t('users.logout')}

@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
 
   def create
      if @user = login(params[:session][:email], params[:session][:password], params[:session][:remember])
-      flash[:success] = "登录成功"
+      flash[:success] = "#{t('.successfully')}"
       respond_to do |format|
         format.html { redirect_back_or_to root_path }
         format.js
@@ -14,10 +14,10 @@ class SessionsController < ApplicationController
     else
       user = User.find_by_email(params[:session][:email])
       if user && user.activation_state == "pending"
-        flash.now[:warning] = "账号尚未通过验证"
+        flash.now[:warning] = "sessions.new.inactivation"
         @inactivation = true
       else
-        flash.now[:error] = "邮箱或密码有误"
+        flash.now[:error] = "#{t('sessions.new.invalid_email_password_combination')}"
       end
         respond_to do |format|
           format.html { render action: 'new' }
@@ -29,7 +29,7 @@ class SessionsController < ApplicationController
   def destroy
     logout
     redirect_to root_path
-    flash[:success] = "成功退出"
+    flash[:success] = "#{t('.successfully')}"
   end
 
 end

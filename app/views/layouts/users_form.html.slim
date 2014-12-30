@@ -8,11 +8,15 @@ html
   body
 
     .pin-button
-      = link_to "首页", songs_path, class: "ui blue inverted pull-right button"
-      - if @signup
-        = link_to "登录", :login, class: "ui green inverted pull-right button"
+      - if I18n.locale.to_s == "en"
+        = link_to "中文简体", set_locale_url(locale: "zh-CN"), class: "ui purple inverted pull-right button"
       - else
-        = link_to "注册", :signup, class: "ui green inverted pull-right button"
+        = link_to "English", set_locale_url(locale: "en"), class: "ui purple inverted pull-right button"
+      = link_to "#{t('.home')}", songs_path, class: "ui blue inverted pull-right button"
+      - if @signup
+        = link_to "#{t('users.login')}", :login, class: "ui green inverted pull-right button"
+      - else
+        = link_to "#{t('users.signup')}", :signup, class: "ui green inverted pull-right button"
     img#rainyday
     .wallpaper
       = yield

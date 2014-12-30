@@ -7,7 +7,7 @@ module UsersHelper
   def require_login
     if !logged_in?
       redirect_to login_url
-      flash[:warning] ="请先登录"
+      flash[:warning] ="#{I18n.t('users.login_first')}"
     end
   end
 end

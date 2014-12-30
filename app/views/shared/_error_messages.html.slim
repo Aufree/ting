@@ -3,9 +3,12 @@
     .ui.error.message
       i.close.icon
       .header
-        | 表单包含 
-        = object.errors.count
-        |  个错误
+        | #{t('.the_form_contains')} 
+        - if I18n.locale.to_s == "zh-CN"
+          = object.errors.count
+          |  个错误
+        - else
+          = pluralize(object.errors.count, "error")
       ul.list
         - object.errors.full_messages.each do |msg|
           li = msg

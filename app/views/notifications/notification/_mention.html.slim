@@ -9,8 +9,7 @@
   .content
     .summary
       = link_to user.name, user, class: "ui label red"
-      |  在分享的歌曲 
+      |  #{t('.mention_you_at')} 
       = link_to song.title, author
-      |  中提到了你
     .extra.text
       = parse_text(comment.content)

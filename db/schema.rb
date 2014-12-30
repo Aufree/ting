@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141223012634) do
+ActiveRecord::Schema.define(version: 20141229142842) do
 
   create_table "comments", force: true do |t|
     t.text     "content"
@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 20141223012634) do
     t.string   "activation_state"
     t.string   "activation_token"
     t.datetime "activation_token_expires_at"
+    t.string   "locale"
   end
 
   add_index "users", ["activation_token"], name: "index_users_on_activation_token"

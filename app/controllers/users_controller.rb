@@ -9,7 +9,7 @@ before_action :find_user, only: [ :show, :user_songs, :favorite_songs, :recent_c
       @songs = @user.songs.order("created_at desc")
     else
       redirect_to root_path
-      flash[:error] = "该用户不存在"
+      flash[:error] = ".no_user"
     end
   end
 
@@ -22,7 +22,7 @@ before_action :find_user, only: [ :show, :user_songs, :favorite_songs, :recent_c
   def create
   	@user = User.new(user_params)
   	if @user.save
-  	  flash[:success] = "注册成功"
+  	  flash[:success] = "#{t('.successfully')}"
         respond_to do |format|
           format.html { redirect_to root_path }
           format.js
@@ -40,13 +40,13 @@ before_action :find_user, only: [ :show, :user_songs, :favorite_songs, :recent_c
 
   def update
     if @user.update_attributes(update_user_params)
-      flash[:success] = "保存成功"
+      flash[:success] = "#{t('.successfully')}"
       respond_to do |format|
         format.html { redirect_to root_path }
         format.js
       end
     else
-      flash.now[:error] = "保存失败"
+      flash.now[:error] = "#{t('.faild')}"
       respond_to do |format|
         format.html { render 'edit' }
         format.js
@@ -57,7 +57,7 @@ before_action :find_user, only: [ :show, :user_songs, :favorite_songs, :recent_c
   def activate
     if (@user = User.load_from_activation_token(params[:id]))
       @user.activate!
-      flash[:success] = "激活成功"
+      flash[:success] = "#{t('.activated')}"
       auto_login(@user)
     else
       not_authenticated
@@ -84,12 +84,19 @@ before_action :find_user, only: [ :show, :user_songs, :favorite_songs, :recent_c
     end
   end
 
+  def language
+    if params[:locale]
+      I18n.default_locale = params[:locale]
+      redirect_to :back
+    end
+  end
+
   private
 
   def find_correct_user
     @user = User.find_by_name(params[:id])
     unless current_user?(@user)
-      flash[:warning] = "无权访问"
+      flash[:warning] = "#{t('permission_denied')}"
       redirect_to root_path
     end
   end
@@ -103,13 +110,13 @@ before_action :find_user, only: [ :show, :user_songs, :favorite_songs, :recent_c
   end
 
   def update_user_params
-    params.require(:user).permit(:bio, :avatar, :password, :password_confirmation)
+    params.require(:user).permit(:bio, :avatar, :locale, :password, :password_confirmation)
   end
 
   def not_login_user
     if logged_in?
       redirect_to root_path
-      flash[:warning] = "你已经登录"
+      flash[:warning] = "#{t('users.has_already_logged_in')}"
     end
   end
 end

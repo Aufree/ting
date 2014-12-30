@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   VALID_NAME_REGEX = /\A[A-Za-z][A-Za-z0-9._-]{2,19}\z/
   validates :name, presence: true, 
                             length: { maximum: 50 }, 
-                            format: { with: VALID_NAME_REGEX, message: '只允许数字、大小写字母和下划线' },
+                            format: { with: VALID_NAME_REGEX },
                             uniqueness: { case_sensitive: false }
   validates :email, presence: true,
                             format: { with: VALID_EMAIL_REGEX },

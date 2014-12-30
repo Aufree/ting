@@ -11,7 +11,7 @@ class PasswordResetsController < ApplicationController
 
     # Tell the user instructions have been sent whether or not email was found.
     # This is to not leak information to attackers about which emails exist in the system.
-    flash[:info] = "邮件已经发送请注意查收"
+    flash[:info] = "#{t('.hint')}"
     redirect_to root_path
   end
 
@@ -40,7 +40,7 @@ class PasswordResetsController < ApplicationController
     @user.password_confirmation = params[:user][:password_confirmation]
     # the next line clears the temporary token and updates the password
     if @user.change_password!(params[:user][:password])
-      flash[:success] = "密码更新成功"
+      flash[:success] = "#{t('.successfully_updated_password')}"
       auto_login(@user)
       redirect_to root_path
     else

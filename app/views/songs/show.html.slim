@@ -45,7 +45,7 @@
                       i.green.icon.pencil
                     span.song-tools-divider •
 
-                    = link_to song_path(@song), method: :delete, data: { confirm: "确认删除" }
+                    = link_to song_path(@song), method: :delete, data: { confirm: "#{t('form.are_you_sure')}" }
                       i.red.icon.trash
 
             .ui.sixteen.wide.column
@@ -62,7 +62,7 @@
             - if @comments.any?
               = render @comments
             - else
-              .ui.center.aligned.basic.segment 暂无评论
+              .ui.center.aligned.basic.segment =t('comments.no_comments_yet')
 
           = paginate @comments
 
@@ -71,9 +71,9 @@
           - if logged_in?
             = render 'comments/form'
           - else
-            .center
+            .ui.center.aligned.basic.segment
               = link_to :login
                 .ui.animated.fade.blue.button
-                  .visible.content 请先登录后再评论
-                  .hidden.content 点击登录
+                  .visible.content =t('users.login_first')
+                  .hidden.content =t('users.login')
   audio id="player" data-xiami_id="-1"

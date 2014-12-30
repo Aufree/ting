@@ -11,7 +11,7 @@
           - @likeable = Likeship.likeable(comment)
           = likeable_likes_tag @likeable
         - if current_user == user
-          = link_to [@song, comment], method: :delete, remote: true, data: { confirm: "确认删除" } do
+          = link_to [@song, comment], method: :delete, remote: true, data: { confirm: "#{t('form.are_you_sure')}" } do
             i.pink.trash.icon
         - else
           span.reply-user

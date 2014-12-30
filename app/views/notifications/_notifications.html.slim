@@ -5,5 +5,5 @@
         .ui.feed
           .event id="notification-#{notification.id}"
             = render "notifications/notification/#{notification.name}", notification: notification
-            = link_to notification_path(notification), remote: true, method: :delete, data: { confirm: "确定删除？" }, class: "pull-right delete-notification" do
+            = link_to notification_path(notification), remote: true, method: :delete, data: { confirm: "#{t('form.are_you_sure')}" }, class: "pull-right delete-notification" do
                  i.red.trash.icon

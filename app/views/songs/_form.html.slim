@@ -6,17 +6,18 @@
       .eight.wide.field
         .ui.labeled.input
           .ui.teal.label http://www.xiami.com/song/
-          = f.text_field :s_id, placeholder: "虾米 ID"
+          = f.text_field :s_id, placeholder: "#{t('activerecord.attributes.song.s_id')}"
       .four.wide.field
-        = f.text_field :title, placeholder: "歌曲名称(自动抓取)", disabled: "disabled"
+        = f.text_field :title, placeholder: "#{t('.title')}", disabled: "disabled"
       .four.wide.field
-        = f.text_field :artist, placeholder: "歌手(自动抓取)", disabled: "disabled"
+        = f.text_field :artist, placeholder: "#{t('.singer')}", disabled: "disabled"
     .field
-      = f.text_area :content, placeholder: "分享内容"
+      = f.text_area :content, placeholder: "#{t('.content')}"
       = f.hidden_field :pic
-    = f.submit "发布", class: "ui submit button orange right floated", data: { disable_with: "提交中" }
+    = f.submit "#{t('form.submit')}", class: "ui submit button orange right floated", data: { disable_with: "#{t('form.submitting')}" }
 javascript:
   if($('input#song_title').val().length > 0){
     title = $('input#song_title').val().replace(/&#039;/,"'")
     $('input#song_title').val(title)  
     }
+#xiami-errors data-blank="#{t('activerecord.attributes.song.s_id')} #{t('.cant_be_blank')}" data-cant_fetch="#{t('songs.cant_fetch')}" data-passed="#{t('.passed')}"

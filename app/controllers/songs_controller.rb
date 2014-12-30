@@ -32,13 +32,13 @@
   def create
    @song = current_user.songs.build(song_params)
     if @song.save
-      flash.now[:success] = "发布成功"
+      flash.now[:success] = "#{t('.success')}"
       respond_to do |format|
         format.html { redirect_to root_path }
         format.js
       end
     else
-      flash.now[:error] = "发布失败"
+      flash.now[:error] = "#{t('.faild')}"
       respond_to do |format|
         format.html { render 'new' }
         format.js
@@ -51,7 +51,7 @@
 
   def update
     if @song.update_attributes params.require(:song).permit(:content)
-      flash.now[:success] = "更新成功"
+      flash.now[:success] = "#{t('.successfully')}"
       respond_to do |format|
         format.html { redirect_to @song }
         format.js
@@ -67,7 +67,7 @@
   def destroy
     @song = current_user.songs.find(params[:id])
     if @song.destroy
-      flash[:success] = "删除成功"
+      flash[:success] = "#{t('.successfully')}"
       respond_to do |format|
         format.html { redirect_to root_path }
         format.js
@@ -84,7 +84,7 @@
   def find_song
     @song = current_user.songs.find(params[:id])
     rescue ActiveRecord::RecordNotFound
-    flash[:warning] = "拒绝访问"
+    flash[:warning] = "#{t('permission_denied')}"
     redirect_to root_path
   end
 

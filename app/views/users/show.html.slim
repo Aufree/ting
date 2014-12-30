@@ -9,24 +9,25 @@ canvas#particles
         .ui.grid
           .one.wide.column
           .ui.five.wide.column.center.aligned.info-column
-            = image_tag(@user.avatar_url(:large), class: "ui image circular lg user-avatar run-popup")
+            = image_tag(@user.avatar_url(:large), class: "ui image circular lg  run-popup")
             .center
               h3 = @user.name
             .center.bio
               = @user.bio
             .ui.divider
-            .user-status.center.aligned
+            - class_name = "ui left aligned basic segment" unless I18n.locale.to_s == "zh-CN"
+            .user-status class="#{class_name}"
               .user-created-at
-                | 加入时间: #{time_ago_in_words(@user.created_at)}
+                p #{t('.created_at')}: #{time_ago_in_words(@user.created_at)} #{t('.ago')}
               .user-songs-count
-                | 发表歌曲: #{@user.songs.count} 首
+                p #{t('.total_songs')}: #{t('.songs_count', count: @user.songs.count)}
               .user-comments-count
-                | 发表评论: #{@user.comments.count} 条
+                p #{t('.total_comments')}: #{t('.comments_count', count: @user.comments.count)}
           .nine.wide.column.content-column
-              .ui.secondary.large.menu
-                = link_to "歌曲", user_songs_url+"?id=#{@user.name}", remote: true, class: "active item"
-                = link_to "喜欢", favorite_url+"?id=#{@user.name}", remote: true, class: "item"
-                = link_to "评论", recent_comments_url+"?id=#{@user.name}", remote: true, class: "item"
+              .ui.secondary.large.menu data-loading="#{t('.loading')}"
+                = link_to "#{t('.songs')}", user_songs_url+"?id=#{@user.name}", remote: true, class: "active item"
+                = link_to "#{t('users.user_panel.likes')}", favorite_url+"?id=#{@user.name}", remote: true, class: "item"
+                = link_to "#{t('comments.comments')}", recent_comments_url+"?id=#{@user.name}", remote: true, class: "item"
               .status-panel
                 = render 'songs/play_list', songs: @songs
 

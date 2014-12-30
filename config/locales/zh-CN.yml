@@ -1,17 +1,116 @@
 zh-CN:
+  locales:
+    en: "English"
+    zh-CN: "简体中文"
+  layouts:
+    users_form:
+      home: 主页
+    navbar:
+      total_users: 注册用户
+  users:
+    signup: 注册
+    login: 登录
+    logout: 退出
+    login_first: 请先登录
+    has_already_logged_in: 用户已经登录
+    user_panel:
+      likes: 喜欢
+      settings: 设置
+      check_profile: 查看个人信息
+    edit:
+      upload_avatar: 点击上传头像
+      my_page: 个人主页
+    show:
+      loading: 加载中...
+      created_at: 创建时间
+      songs: 歌曲
+      total_songs: 分享歌曲
+      total_comments: 发表评论
+      ago: ""
+      users_count: "%{count} 位"
+      songs_count: "%{count} 首"
+      comments_count: "%{count} 条"
+      no_user: 该用户不存在
+    create:
+      successfully: 注册成功
+    update:
+      successfully: 资料保存成功
+      faild: 资料保存失败
+    activate:
+      activated: 验证成功
+  sessions:
+    new:
+      remember_me: 记住我
+      forget_password: 忘记密码
+      invalid_email_password_combination: 邮箱或密码无效
+      inactivation: 用户尚未通过验证
+    create:
+      successfully: 登录成功
+    destroy:
+      successfully: 成功退出
+  songs:
+    form:
+      title: 歌曲名
+      singer: 歌手信息(自动抓取)
+      content: 分享内容
+      cant_be_blank: 不能为空
+      passed: "检测通过, 填写分享内容后即可发布"
+    play_list:
+      no_songs_yet: 没有相关歌曲
+    songs:
+      share_a_song: 分享歌曲
+      recommend_songs: "你还没有喜欢过任何歌曲, 下面歌曲由系统自动推荐"
+      loaded: 全部歌曲加载完毕
+    create:
+      success: 成功发布
+      faild: 发布失败
+    update:
+      successfully: 更新成功
+    destroy: 
+      successfully: 删除成功
+    cant_fetch: 未获取到该歌曲的相关信息
+    fetch_faild: 抓取失败
+  comments:
+    comments: 所有评论
+    no_comments_yet: 暂无评论
+  notifications:
+    index:
+      notifications: 通知
+      empty_notifications: 清空通知
+      clearing: 正在清空...
+    notification:
+      comment:
+        add_a_comment_at: 添加评论于
+      mention:
+        mention_you_at: 提及您于
+  password_resets:
+    create:
+      hint: 您将在几分钟内收到重置密码的指令
+    update:
+      successfully_updated_password: 密码更新成功
+  form:
+    submit: 提交
+    submitting: 提交中...
+    save: 保存
+    are_you_sure: 确认删除?
+    reset_password: 重置密码
+  shared:
+    error_messages:
+     the_form_contains: 表单包含
+  permission_denied: 无权访问
   activerecord:
     attributes:
       user:
-        name: "名称"
-        email: "邮箱"
-        password: "密码"
-        password_confirmation: "确认密码"
-        bio: "个人说明"
+        name: 名称
+        email: 邮箱
+        password: 密码
+        password_confirmation: 确认密码
+        bio: 个人说明
       song:
         s_id: "虾米 ID "
-        title: "歌曲名称"
-        artist: "歌手信息"
-        content: "分享内容"
-        pic: "图片链接"
+        title: 歌曲名称
+        artist: 歌手
+        content: 分享内容
+        pic: 图片链接
       comment:
-       content: "评论内容"
+       content: 评论内容

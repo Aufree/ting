@@ -5,18 +5,18 @@
     .ui.form
       .field
         .ui.left.icon.large.input
-           = f.text_field :name, placeholder: "用户名"
+           = f.text_field :name, placeholder: "#{t('activerecord.attributes.user.name')}"
            i.user.icon
       .field
         .ui.left.icon.large.input
-           = f.text_field :email, placeholder: "邮箱"
+           = f.text_field :email, placeholder: "#{t('activerecord.attributes.user.email')}"
            i.mail.icon
       .field
         .ui.left.icon.large.input
-           = f.password_field :password, placeholder: "密码"
+           = f.password_field :password, placeholder: "#{t('activerecord.attributes.user.password')}"
            i.lock.icon
       .field
         .ui.left.icon.large.input
-           = f.password_field :password_confirmation, placeholder: "确认密码"
+           = f.password_field :password_confirmation, placeholder: "#{t('activerecord.attributes.user.password_confirmation')}"
            i.lock.icon
-      = f.submit "注册", class: "ui fluid green large button", data: { disable_with: "提交中" }
+      = f.submit "#{t('users.signup')}", class: "ui fluid green large button", data: { disable_with: "#{t('form.submitting')}" }

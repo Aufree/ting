@@ -12,7 +12,7 @@ module SongsHelper
       object.pic = doc.search("playlist trackList album_pic").text.to_s
       if object.artist.empty?
         object.title = ""
-        errors[:base] << "未识别到该歌曲"
+        errors[:base] << "#{I18n.t('songs.cant_fetch')}"
       end
   end
 end

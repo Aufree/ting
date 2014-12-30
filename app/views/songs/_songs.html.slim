@@ -1,19 +1,20 @@
-- if index
-  - if logged_in?
-    .ui.green.button.modal-toggle 分享歌曲
-    .ui.modal.song-form
-      i.close.red.icon
-      .content
-        = render 'songs/form', song: current_user.songs.new
-
-- if @recommend
-  .ui.orange.message
-    .center 你还没有喜欢过任何歌曲, 下面歌曲由系统自动推荐
 - cache [:songs, @songs] do
+  - if index
+    - if logged_in?
+      - class_name = "modal-en" unless I18n.locale.to_s == "zh-CN"
+      .ui.green.button.modal-toggle class="#{class_name}" =t('.share_a_song')
+      .ui.modal.song-form
+        i.close.red.icon
+        .content
+          = render 'songs/form', song: current_user.songs.new
+
+  - if @recommend
+    .ui.orange.message
+      .center recommend_songs
   #songs
     - for song in @songs
-      = render 'song', song: song
-    #pagination
+      = render 'song', song: song, index: index
+    #pagination data-loading-done="#{t('.loaded')}"
       = paginate @songs
-        
-audio id="player" data-xiami_id="-1"
+          
+  audio id="player" data-xiami_id="-1"

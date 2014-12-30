@@ -1,6 +1,6 @@
     .ui.stacked.segment
       .ui.ribbon.green.label 
-        h3.notifications-header 通知
-      = link_to "清空通知", clear_notifications_path, remote: true, method: :delete, data: { confirm: "确认清空", disable_with: "清空中" }, class: "ui red button pull-right"
+        h3.notifications-header =t('.notifications')
+      = link_to "#{t('.empty_notifications')}", clear_notifications_path, remote: true, method: :delete, data: { confirm: "#{t('form.are_you_sure')}", disable_with: "#{t('.clearing')}" }, class: "ui red button pull-right"
       = render 'notifications'
       = paginate @notifications

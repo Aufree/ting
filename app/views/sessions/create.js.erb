@@ -6,9 +6,9 @@ $('.ui.form').removeClass('loading')
   $errors = $('#login-errors');
   $errors.addClass('ui error message');
   <% if @inactivation %>
-    $errors.html("用户尚未通过验证");
+    $errors.html($('.errors-info').data('inactivation'));
   <% else %>
-      $errors.html("邮箱或密码输入不正确");
+    $errors.html($('.errors-info').data('error'));
   <% end %>
     $errors.transition('tada');
 <% end %>
