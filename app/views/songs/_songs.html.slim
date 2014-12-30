@@ -10,11 +10,11 @@
 
   - if @recommend
     .ui.orange.message
-      .center recommend_songs
+      .ui.center.aligned.basic.segment =t('.recommend_songs')
   #songs
     - for song in @songs
       = render 'song', song: song, index: index
-    #pagination data-loading-done="#{t('.loaded')}"
+    #pagination data-loaded="#{t('.loaded')}"
       = paginate @songs
           
   audio id="player" data-xiami_id="-1"

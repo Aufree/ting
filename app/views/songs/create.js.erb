@@ -1,5 +1,5 @@
 <% if @song.errors.empty? %>
-    new_song = "<%= j render 'song', song: @song %>";
+    new_song = "<%= j render 'song', song: @song, index: true %>";
     $('#songs').prepend(new_song);
     animated();
 <% else %>

@@ -11,7 +11,6 @@ resources :songs do
   resources :comments, only: [ :create, :destroy ]
 end
 resource :likeship, only: [ :create, :destroy ]
-resources :pages
 resources :notifications, only: [ :index, :destroy ] do
   collection do
     post :count

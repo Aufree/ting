@@ -6,9 +6,10 @@
       = link_to "#{t('users.signup')}", :signup, class: "ui blue inverted button"
       .or
       = link_to "#{t('users.login')}", :login, class: "ui purple inverted button"
-  .ui.teal.inverted.center.aligned.segment
+  .ui.red.inverted.center.aligned.segment
     #site-status
-      h3 Ting
+      = link_to "中文简体", set_locale_url(locale: "zh-CN"), class: "ui red label"
+      = link_to "English", set_locale_url(locale: "en"), class: "ui red label"
       .ui.divider
       .site-params
         p #{t('.total_users')}: #{t('users.show.users_count', count: User.count)}
