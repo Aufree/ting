@@ -69,7 +69,7 @@ en:
     destroy: 
       successfully: Song was successfully deleted
     cant_fetch: The information of song can't be fetch
-    fetch_faild: can't be fetch
+    fetch_faild: " can't be fetch"
   comments:
     comments: Comments
     no_comments_yet: No comments yet
@@ -118,18 +118,26 @@ en:
      the_form_contains: The form contains
   permission_denied: Permission denied
   activerecord:
-      attributes:
-        user:
-          name: "Name"
-          email: "Email"
-          password: "Password"
-          password_confirmation: "Password confirmation"
-          bio: "Bio"
+    errors:
+      models:
         song:
-          s_id: "Xiami ID "
-          title: "Song title"
-          artist: "Singer"
-          content: "Content"
-          pic: "Picture link"
-        comment:
-         content: "Content"
+          attributes:
+            title:
+              fetch: " can't be fetch"
+            artist:
+              fetch: " can't be fetch"
+    attributes:
+      user:
+        name: "Name"
+        email: "Email"
+        password: "Password"
+        password_confirmation: "Password confirmation"
+        bio: "Bio"
+      song:
+        s_id: "Xiami ID "
+        title: "Song title"
+        artist: "Singer"
+        content: "Content"
+        pic: "Picture link"
+      comment:
+       content: "Content"

@@ -118,6 +118,14 @@ zh-CN:
      the_form_contains: 表单包含
   permission_denied: 无权访问
   activerecord:
+    errors:
+      models:
+        song:
+          attributes:
+            title:
+              fetch: 抓取失败
+            artist:
+              fetch: 抓取失败
     attributes:
       user:
         name: 名称
