@@ -7,8 +7,7 @@ class SorceryCore < ActiveRecord::Migration
       t.string :salt,             :null => false
       t.string :avatar
       t.string :bio
-      t.string :weibo
-      t.string :weixin
+      t.string :locale
 
       t.timestamps
     end
