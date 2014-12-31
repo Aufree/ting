@@ -4,6 +4,18 @@ Ting is a music social networking project written in Ruby on Rails and Semantic-
 
 You can check out the demo at [this link](https://tinger.herokuapp.com).
 
+##Screen Shots
+
+![](http://ww1.sinaimg.cn/large/76dc7f1bgw1ent5zzgeyvj21kw11416d.jpg)
+
+![](http://ww1.sinaimg.cn/large/76dc7f1bgw1ent5xvakuyj21kw114qce.jpg)
+
+![](http://ww4.sinaimg.cn/large/76dc7f1bgw1ent5z2xqrnj21kw114n2c.jpg)
+
+![](http://ww4.sinaimg.cn/large/76dc7f1bgw1ent60hhp39j21kw11443g.jpg)
+
+![](http://ww1.sinaimg.cn/large/76dc7f1bgw1ent60ssvxgj21kw1147aa.jpg)
+
 ##Requirements
 
 Ruby 2.0.0 +    
@@ -38,9 +50,9 @@ ImageMagick 6.8 +
 
 ##License
 
----------------
-
 Copyright (c) 2014 Paul King
+
+---------------
 
 Released under the MIT license:
 
