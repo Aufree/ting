@@ -15,4 +15,4 @@
         p #{t('.total_users')}: #{t('users.show.users_count', count: User.count)}
         p #{t('users.show.total_songs')}: #{t('users.show.songs_count', count: Song.count)}
         p #{t('users.show.total_comments')}: #{t('users.show.comments_count', count: Comment.count)}
-        p #{t('users.show.created_at')}: #{time_ago_in_words(User.first.created_at)} #{t('users.show.ago')}
+        p #{t('users.show.created_at')}: #{time_ago_in_words(User.try(:first).created_at)} #{t('users.show.ago')}
