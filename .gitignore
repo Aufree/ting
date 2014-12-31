@@ -40,3 +40,6 @@ bower.json
 .DS_Store
 
 config/environments/*.rb
+
+# Automatically precompile assets before pushing to Heroku
+public/**
