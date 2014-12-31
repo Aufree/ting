@@ -284,7 +284,6 @@
           ]], 100
           return
         image.crossOrigin = "anonymous"
-        image.src = "/assets/night.jpg"
 
   window.Boker = Boker
   return

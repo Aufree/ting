@@ -13,6 +13,6 @@ html
         = link_to "#{t('users.login')}", :login, class: "ui green inverted pull-right button"
       - else
         = link_to "#{t('users.signup')}", :signup, class: "ui green inverted pull-right button"
-    img#rainyday
+    img#rainyday src="#{asset_path("night.jpg")}"
     .wallpaper
       = yield
