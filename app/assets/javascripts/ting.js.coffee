@@ -230,7 +230,7 @@
       $("#songs").infinitescroll
         loading:
           finishedMsg: '<div class="ui green inverted center aligned segment">'+$('#pagination').data('loaded')+'</div>'
-          img: '/assets/loading.gif'
+          img: $('#songs').data('image')
           msgText: ""
         navSelector: "nav.pagination"
         nextSelector: "nav.pagination a[rel=next]"

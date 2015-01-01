@@ -11,7 +11,7 @@
   - if @recommend
     .ui.orange.message
       .ui.center.aligned.basic.segment =t('.recommend_songs')
-  #songs
+  #songs data-image="#{asset_path("loading.gif")}"
     - for song in @songs
       = render 'song', song: song, index: index
     #pagination data-loaded="#{t('.loaded')}"
