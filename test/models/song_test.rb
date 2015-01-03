@@ -15,8 +15,10 @@ class SongTest < ActiveSupport::TestCase
   end
 
   test "s_id should not be blank" do 
-    @song.s_id = " "
-    assert_not @song.valid?
+    assert_raise(OpenURI::HTTPError) do
+      @song.s_id = " "
+      assert_not @song.valid?
+    end
   end
 
   test "content should not be blank" do 
