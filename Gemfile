@@ -52,10 +52,8 @@ gem "font-awesome-rails"
  # i18n
  gem 'rails-i18n'
 
-# Use sqlite3 as the database for Active Record
-group :development do
-  gem 'sqlite3'
-end
+ # Coveralls
+ gem 'coveralls', require: false
 
 group :production do
   gem 'pg', '0.15.1'
@@ -73,6 +71,7 @@ end
 
 
 group :development do
+  gem 'sqlite3'
   gem "better_errors"
   gem 'binding_of_caller'
   gem 'meta_request'
