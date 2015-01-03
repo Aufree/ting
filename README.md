@@ -1,7 +1,6 @@
 #Ting
 [![Build Status](https://travis-ci.org/Aufree/ting.svg?branch=master)](https://travis-ci.org/Aufree/ting)
 
-https://travis-ci.org/Aufree/ting.svg?branch=master
 Ting is a music social networking project written in Ruby on Rails and Semantic-UI.
 
 You can check out the demo at [this link](https://tinger.herokuapp.com).
