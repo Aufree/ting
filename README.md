@@ -51,7 +51,7 @@ ImageMagick 6.8 +
 
 ##License
 
-Copyright (c) 2014 Paul King
+Copyright (c) 2015 Paul King
 
 ---------------
 
