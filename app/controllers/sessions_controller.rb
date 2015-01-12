@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+before_action :not_login_user, only: [ :new ]
+
   def new
     @user = User.new
     render layout: "users_form"
@@ -30,6 +32,15 @@ class SessionsController < ApplicationController
     logout
     redirect_to root_path
     flash[:success] = "#{t('.successfully')}"
+  end
+
+  private
+
+    def not_login_user
+    if logged_in?
+      redirect_to root_path
+      flash[:warning] = "#{t('users.has_already_logged_in')}"
+    end
   end
 
 end
