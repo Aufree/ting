@@ -12,41 +12,31 @@ class Comment < ActiveRecord::Base
     notifications.delete_all
   end
 
-  def send_notification_to_at_user(at_user)
-    unless at_user == self.user 
-      Notification.create(user: at_user,
-                          subject: self,
-                          name: 'mention')
+  def send_notification_to_at_users(at_users)
+    (Array.wrap(at_users) - [self.user]).each do |at_user|
+      Notification.create(user: at_user, subject: self, name: 'mention')
     end
   end
 
-  def send_notification_to_musician(at_user)
+  def send_notification_to_musician(at_users)
     musician = self.song.user
-    unless musician == at_user || musician == self.user
-      Notification.create(user: musician,
-                          subject: self,
-                          name: 'comment')   
+    comment_owner_id = self.user_id
+
+    if (Array.wrap(at_users).map(&:id) | [comment_owner_id] & [musician.id]).blank?
+      Notification.create(user: musician, subject: self, name: 'comment')
     end
   end
 
   private
 
   def get_at_users
-    at_users = []
-    self.content.gsub /@(\w+)/ do |username|
-      name = username.gsub('@', '')
-      user = User.find_by_name(name)
-      at_users << user if user.present? && !at_users.include?(user)
+    mentioned_names_ary = self.content.gsub(/@(\w+)/).each_with_object([]) do |name, ary|
+      ary.push name.gsub('@', '')
     end
 
-    at_users.each do |at_user| 
-      self.send_notification_to_at_user(at_user)
-      send_notification_to_musician(at_user)
-    end
-
-    if at_users.empty?
-      send_notification_to_musician('')
-    end
+    at_users = User.where(name: mentioned_names_ary).load
+    send_notification_to_at_users(at_users)
+    send_notification_to_musician(at_users)
   end
 
 end
