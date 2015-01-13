@@ -23,4 +23,27 @@ class CommentTest < ActiveSupport::TestCase
     @comment.content = " "
     assert_not @comment.valid?
   end
+
+  test 'should notify at_users' do
+    count = Notification.count
+    user = users(:foo)
+    @comment.content = "@#{@comment.song.user.name}"
+    @comment.user = user
+    @comment.dup.save!
+    assert_equal count + 1, Notification.count
+  end
+
+  test 'should notify musician' do
+    count = Notification.count
+    user = users(:foo)
+    @comment.user = user
+    @comment.dup.save!
+    assert_equal count + 1, Notification.count
+  end
+
+  test 'should not notify musician' do
+    count = Notification.count
+    @comment.dup.save!
+    assert_equal count, Notification.count
+  end
 end
