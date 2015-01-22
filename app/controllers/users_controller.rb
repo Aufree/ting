@@ -9,7 +9,7 @@ before_action :find_user, only: [ :show, :user_songs, :favorite_songs, :recent_c
       @songs = @user.songs.order("created_at desc")
     else
       redirect_to root_path
-      flash[:error] = ".no_user"
+      flash[:error] = "#{t('.no_user')}"
     end
   end
 
