@@ -5,7 +5,7 @@ Ting is a music social networking project written in Ruby on Rails and Semantic-
 
 You can check out the demo at [this link](http://tinger.herokuapp.com).
 
->You can ping me on [Twitter](https://twitter.com/_Paul_King_) or follow me on [Weibo](http://weibo.com/jinfali).
+**You can ping me on [Twitter](https://twitter.com/_Paul_King_) or follow me on [Weibo](http://weibo.com/jinfali).**
 
 ##Screen Shots
 
