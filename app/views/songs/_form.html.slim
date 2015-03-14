@@ -18,6 +18,7 @@
       = f.text_area :content, placeholder: "#{t('.content')}"
       = f.hidden_field :pic
     = f.submit "#{t('form.submit')}", class: "ui submit button orange right floated", data: { disable_with: "#{t('form.submitting')}" }
+    span.pull-right.help-inline Ctrl+Enter
 javascript:
   if($('input#song_title').val().length > 0){
     title = $('input#song_title').val().replace(/&#039;/,"'")

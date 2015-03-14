@@ -30,6 +30,7 @@
       self.initReplyUser()
       self.initRainyDay()
       self.initAutocompleteAtUser()
+      self.initReplyOnPressKey()
       return
 
     sitePageUpdate: ->
@@ -284,6 +285,12 @@
           ]], 100
           return
         image.crossOrigin = "anonymous"
+
+    initReplyOnPressKey: ->
+      $(document).on 'keydown', 'textarea', (e) ->
+        if (e.keyCode == 10 or e.keyCode == 13) and (e.ctrlKey or e.keyCode == 91)
+          $(this).parents('form').submit()
+          return false
 
   window.Boker = Boker
   return
