@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'https://ruby.taobao.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -41,7 +41,7 @@ gem "font-awesome-rails"
  gem 'nokogiri'
 
  # Authentication
- gem 'sorcery'
+ gem 'sorcery', '0.9.0'
 
  # Slim
  gem 'slim'
