@@ -1,5 +1,5 @@
 p.share-button
-  a href="http://service.weibo.com/share/share.php?url=#{song_url(@song)}&type=3&pic=&title=#{song.title}" target="_blank"
+  a href="http://service.weibo.com/share/share.php?url=#{song_url(@song)}&type=3&pic=#{song.pic}&title=#{song.title}" target="_blank"
     i.weibo.red.icon
   a href="https://twitter.com/intent/tweet?url=#{song_url(song)}&text=#{song.title}&via=Ting"  target="_blank"
     i.twitter.blue.icon
