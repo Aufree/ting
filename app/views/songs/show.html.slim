@@ -37,7 +37,7 @@
 
                   span.item id="like-song-#{@song.id}"
                     - @likeable = Likeship.likeable(@song)
-                    = likeable_likes_tag @likeable
+                    = likeable_likes_tag @likeable                  
 
                   - if current_user == user
                     span.song-tools-divider •
@@ -46,7 +46,8 @@
                     span.song-tools-divider •
 
                     = link_to song_path(@song), method: :delete, data: { confirm: "#{t('form.are_you_sure')}" }
-                      i.red.icon.trash
+                      i.red.icon.trash                  
+                = render 'share_buttons', song: @song
 
             .ui.sixteen.wide.column
               .song-content 
