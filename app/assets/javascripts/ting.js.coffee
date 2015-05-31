@@ -198,6 +198,7 @@
     initLoadingForm: ->
       $(':submit').click ->
         $('.ui.form').addClass "loading"
+        $('.ui.form .button').addClass "disabled"
 
     # Customizing confirmation dialogs in Rails
     initCustomDataConfirm: ->
@@ -290,7 +291,7 @@
       $(document).on 'keydown', 'textarea', (e) ->
         if (e.keyCode == 10 or e.keyCode == 13) and (e.ctrlKey or e.keyCode == 91)
           $(this).parents('form').submit()
-          return false
+          false
 
   window.Boker = Boker
   return
