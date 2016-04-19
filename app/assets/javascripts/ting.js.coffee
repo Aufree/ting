@@ -123,7 +123,7 @@
         else
           play_icon.addClass('spinner loading')
           playMusic = (music) ->
-            $.get 'http://inmusic.sinaapp.com/xiami_api/' + music, (data) ->
+            $.get 'http://xiamirun.avosapps.com/run?song=http://www.xiami.com/song/' + music, (data) ->
               if data
                 $('.stop-rotate').removeClass 'stop-rotate'
                 play_icon.removeClass('spinner loading')
@@ -131,7 +131,7 @@
                 self.siblings('.image').addClass 'rotating'
                 self.parents('.image').addClass 'rotating'
                 $audio.attr
-                  "src": data.songurl
+                  "src": data.url
                   "data-xiami_id": data.id
                 $('.pause').removeClass('pause').addClass 'play'
                 play_icon.removeClass('play').addClass 'pause'
@@ -173,14 +173,14 @@
         $btn = $(this)
         $btn.addClass 'loading'
         if s_id.length > 0
-          $.get("http://inmusic.sinaapp.com/xiami_api/" + s_id, (data) ->
+          $.get("http://xiamirun.avosapps.com/run?song=http://www.xiami.com/song/" + s_id, (data) ->
             # parse single quotation marks for song title
             title = data.title.replace(/&#39;/,"'")
             $('input#song_title').val(title)
-            $('input#song_artist').val(data.singer)
+            $('input#song_artist').val(data.artist)
             $('#song-errors').addClass("animated zoomIn").html '<div id="error_explanation"><div class="ui success message center aligned segment">'+$('#xiami-errors').data('passed')+'</div></div>'
             return
-          ).fail( -> 
+          ).fail( ->
             $('input#song_title').val("")
             $('input#song_artist').val('')
             $('#song-errors').addClass("animated bounceIn").html '<div id="error_explanation"><div class="ui error message center aligned segment">'+$('#xiami-errors').data('cant_fetch')+'</div></div>'
