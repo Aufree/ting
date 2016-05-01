@@ -132,7 +132,7 @@
                 self.parents('.image').addClass 'rotating'
                 $audio.attr
                   "src": data.url
-                  "data-xiami_id": data.id
+                  "data-xiami_id": music
                 $('.pause').removeClass('pause').addClass 'play'
                 play_icon.removeClass('play').addClass 'pause'
                 $player.play()
