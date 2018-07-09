@@ -1,12 +1,3 @@
-<p align="center">
-  <br>
-  <b>创造不息，交付不止</b>
-  <br>
-  <a href="https://www.yousails.com">
-    <img src="https://yousails.com/banners/brand.png" width=350>
-  </a>
-</p>
-
 # Ting
 
 [![Build Status](https://travis-ci.org/Aufree/ting.svg?branch=master)](https://travis-ci.org/Aufree/ting)
@@ -16,6 +7,14 @@ Ting is a music social networking project written in Ruby on Rails and Semantic-
 You can check out the demo at [this link](http://tinger.herokuapp.com).
 
 **You can ping me on [Twitter](https://twitter.com/_Paul_King_) or follow me on [Weibo](http://weibo.com/jinfali).**
+
+<p align="center">
+  <br>
+  若需要软件外包服务，可与我联系，添加好友请注明来意
+  <br>
+  <br>  
+  <img src="https://user-images.githubusercontent.com/5310542/41954703-5178d4e8-7a0f-11e8-81b2-41c8f6aa0151.png" width="30%">
+</p>
 
 ## Screen Shots
 
