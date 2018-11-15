@@ -8,14 +8,6 @@ You can check out the demo at [this link](http://tinger.herokuapp.com).
 
 **You can ping me on [Twitter](https://twitter.com/_Paul_King_) or follow me on [Weibo](http://weibo.com/jinfali).**
 
-<p align="center">
-  <br>
-  若需要软件外包服务，可与我联系，添加好友请注明来意
-  <br>
-  <br>  
-  <img src="https://user-images.githubusercontent.com/5310542/41954703-5178d4e8-7a0f-11e8-81b2-41c8f6aa0151.png" width="30%">
-</p>
-
 ## Screen Shots
 
 ![](http://ww1.sinaimg.cn/large/76dc7f1bgw1ent5zzgeyvj21kw11416d.jpg)
